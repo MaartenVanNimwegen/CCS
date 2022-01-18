@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel ="stylesheet" href="inloggenpagina.css">
+      <title>uitlening form</title>
+   </head>
+<body>
+
+<header>
+    <div class="navbar">
+      <div class="logo">
+        <a href="inloggenpagina.php" ><img src="https://cdn.synigopulse.com/media4/cms/18036/logo.png/"></a>
+      </div>
+      <div>
+        <nav>
+          <a href="inloggenpagina.php"><input type="submit" class="buttons" value="Uitloggen"/></a>
+          <a href="toevoegenknop.php" value="Toevoegen" class="buttons">Toevoegen</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="rectangle1">
+
+    <form method="POST" action="mail.php">
+          <div class="naam">
+              <h4>naam:  
+              <input type="text" name="naam" autocomplete="off" required placeholder="gebruikersnaam"></h4>
+          </div>
+          <div class="leerlingnummer">
+              <h4>leerlingnummer: 
+             <input type="text" name="leerlingnummer" autocomplete="off" required placeholder="leerlingnummer"></h4>
+          </div>
+          <div class="datum">
+              <h4>datum: 
+             <input type="text" name="datum" autocomplete="off" required placeholder="datum"></h4>
+          </div>
+          <div class="retounerendatum">
+              <h4>retounerendatum: 
+              <input type="text" name="retounerendatum" autocomplete="off" required placeholder="retounerendatum"></h4>
+          </div>
+          <div class="opmerking">
+             <h4>opmerking: 
+             <input type="text" name="opmerking" autocomplete="off" required placeholder="opmerking"></h4>   
+            </div>
+            <div class="opmerking">
+             <h4>email: 
+             <input type="text" name="email" autocomplete="off" required placeholder="email"></h4>   
+            </div>
+         <div class="submit">
+         <a href="#"> <button type="submit">lenen</button></a>
+    </div>
+        
+    </form>
+  </div>
+
+
+</body>
+</html>
+
