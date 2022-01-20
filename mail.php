@@ -8,7 +8,7 @@ $ophaaltijd= $_POST['ophaaltijd'];
 
 
 //mail versturen met de mail van de gebruiker en die het invuld
-$receiver = array($email, 'kevinka1239@gmail.com');
+$receiver = array($email, 'gerritw2004@gmail.com');
 $subject="bestelling";
 $body = "Beste $naam, wij hebben een besteling binnen\r\n
 Naam= $naam \r\nemail= $email \r\nophaaltijd= $ophaaltijd
@@ -28,7 +28,7 @@ click collect snack";
 //   <META HTTP-EQUIV="Refresh" CONTENT="0; URL=">
 //   <?php
 //wordt database connection gemaakt en als het niet lukt sluit het af
-$conn = new mysqli('localhost','deb85590_p21t4','UtvCWEGA','deb85590_p21t4');
+$conn = new mysqli('localhost','search','','root');
       if($conn->connect_error){
           die('Connection Failed : '.$conn->connect_error);
       }else{
