@@ -1,6 +1,6 @@
 <?php
 
-    include 'header.php';
-    include 'webshop.php';
+     include 'header.php';
+     include 'webshop.php';
 
 ?>

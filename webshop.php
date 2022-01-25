@@ -16,14 +16,15 @@
 ?>
 <div class="container">
 <?php
+        echo $result['img'];
 
         if ($total != 0) {
             while ($result=mysqli_fetch_assoc($data)) {
-                echo "<div class='child'>" . $result['naam'] . "<br> €" . $result['prijs'] . "</div>";
+                "<div class='child'><img src=" . $result['img'] . ">" . $result['naam'] . "<br> €" . $result['prijs'] . "</div>";
             }
         }
         else {
-            echo "Er is geen data gevonden!";
+            echo 'Er is geen data gevonden!';
         }
 ?>
 </div>
