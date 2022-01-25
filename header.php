@@ -8,10 +8,9 @@
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="#" class="active">Home</a>
-        <a href="#">News</a>
-        <a href="#">Contact</a>
-        <a href="#">About</a>
+        <a href="#">Orderoverzicht</a>
+        <a href="#">Inventaris</a>
+        <a href="#">Login</a>
         <a href="javascript:void(0);" class="icon"  onclick="myFunction()">
         <i class="fa fa-bars"></i>
         </a>
