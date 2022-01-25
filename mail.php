@@ -8,7 +8,7 @@ $ophaaltijd= $_POST['ophaaltijd'];
 
 
 //mail versturen met de mail van de gebruiker en die het invuld
-$receiver = array($email, 'gerritw2004@gmail.com');
+$receiver = array($email, 'kevinka1239@gmail.com');
 $subject="bestelling";
 $body = "Beste $naam, wij hebben een besteling binnen\r\n
 Naam= $naam \r\nemail= $email \r\nophaaltijd= $ophaaltijd
