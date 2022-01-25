@@ -25,10 +25,10 @@ click collect snack";
  }
 
 ?>
-//   <META HTTP-EQUIV="Refresh" CONTENT="0; URL=">
-//   <?php
+
+   <?php
 //wordt database connection gemaakt en als het niet lukt sluit het af
-$conn = new mysqli('localhost','deb85590_p21t4','UtvCWEGA','deb85590_p21t4');
+$conn = new mysqli('localhost','info','UtvCWEGA','deb85590_p21t4');
       if($conn->connect_error){
           die('Connection Failed : '.$conn->connect_error);
       }else{
