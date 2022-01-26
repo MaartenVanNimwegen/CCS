@@ -7,7 +7,9 @@ html {
   padding: 0px;
 }
 .container {
-  background-color: white;
+  margin: 0px;
+  padding: 15px;
+  background-color: hotpink;
 }
 .child {
   display: flex;
