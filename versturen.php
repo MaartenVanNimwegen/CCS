@@ -19,7 +19,7 @@ click collect snack";
 
 if(mail(implode(',',$receiver), $subject, $body)){
   ?>
-  <META HTTP-EQUIV="Refresh" CONTENT="0; URL=https://p21t4.lesonline.nu/admin(orderoverzicht).php">
+  <META HTTP-EQUIV="Refresh" CONTENT="0; URL=https://p21t4.lesonline.nu/adminoverzicht.php">
   <?php
 }
 
@@ -27,14 +27,14 @@ if(mail(implode(',',$receiver), $subject, $body)){
 include("conn.php");
 error_reporting(0);
 
-$query1 = "DELETE FROM bestelling WHERE naam='$naam' && aantal='$totaal' && telef='$telef' && email='$email'";
+$query1 = "DELETE FROM bestelling WHERE naam='$naam' && totaal='$totaal' && telef='$telef' && email='$email'  && datum='$datum'  && adres='$adres'  && tijd='$tijd'";
 
 $data1=mysqli_query($conn, $query1);
 
 if($data1){
     echo "<script>alert('Bestelling is verzonden')</script>";
     ?>
-    <META HTTP-EQUIV="Refresh" CONTENT="0; URL=https://p21t4.lesonline.nu/adminorderoverzicht.php">
+    <META HTTP-EQUIV="Refresh" CONTENT="0; URL=https://p21t4.lesonline.nu/adminoverzicht.php">
     <?php
 }else{
     echo "<script>alert('Sorry, bestelling versturen is mislukt, Probeer het later opnieuw')</script>";
