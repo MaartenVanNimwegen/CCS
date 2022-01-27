@@ -63,15 +63,7 @@ nav a {
 <form method='POST' action=""> 
  <input type="submit" name="loguit">loguit</input>
 </form> 
-     <!-- <div class="NAV">
-      <nav>
-        <ul>
-          <li>  <a href="admin(orderoverzicht).php">Orderoverzicht</a></li>
-          <li>  <a href="admin(accountmanage)klantoverzicht.php">Klantoverzicht</a></li>
-        </ul>
-      </nav>
-    </div>
-</header> -->
+    
 
 
 <body>
@@ -82,10 +74,9 @@ nav a {
             <th>Naam</th>
             <th>Telefoonnummer</th>
             <th>Emailadres</th>
-            <th>Bezorgadres</th>
-            <th>bezorgpostcode</th>
+            <th>datum</th>
             <th>tijd</th>
-            <th>Plaats</th>
+            <th>adres</th>
             <th>Totaalbedrag</th>
             </tr>
 <?php
@@ -105,10 +96,9 @@ if($total!=0){
       <td>".$result['naam']."</td>
       <td>".$result['telef']."</td>
       <td>".$result['email']."</td>
-      <td>".$result['bezorgadres']."</td>
-      <td>".$result['bpostcode']."</td>
+      <td>".$result['datum']."</td>
       <td>".$result['tijd']."</td>
-      <td>".$result['plaats']."</td>
+      <td>".$result['adres']."</td>
       <td>".'€'.$result['totaal']."</td>
       <td><a href='versturen.php?naam=$result[naam]&telef=$result[telef]&email=$result[email]&datum=$result[datum]' onclick='return checkdelete()'><input type='submit' value='Versturen' id='deletebtn'></a></td>
       </tr>
