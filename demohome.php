@@ -22,15 +22,15 @@ $cartArray = array(
 
 if(empty($_SESSION["shopping_cart"])) {
 	$_SESSION["shopping_cart"] = $cartArray;
-	$status = "<div class='box'>Product is added to your cart!</div>";
+	$status = "<div class='box'>Dit product is in je winkelwagen geplaatst!</div>";
 }else{
 	$array_keys = array_keys($_SESSION["shopping_cart"]);
 	if(in_array($code,$array_keys)) {
 		$status = "<div class='box' style='color:red;'>
-		Product is already added to your cart!</div>";	
+		Dit product zit al in je winkelwagen!</div>";	
 	} else {
 	$_SESSION["shopping_cart"] = array_merge($_SESSION["shopping_cart"],$cartArray);
-	$status = "<div class='box'>Product is added to your cart!</div>";
+	$status = "<div class='box'>Dit product is in je winkelwagen geplaatst!</div>";
 	}
 
 	}
