@@ -58,7 +58,11 @@ nav a {
     font-size:18px
 }
   
-
+</style>
+<header>
+<form method='POST' action=""> 
+ <input type="submit" name="loguit">loguit</input>
+</form> 
     
 
 
