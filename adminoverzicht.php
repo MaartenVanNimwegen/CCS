@@ -41,7 +41,7 @@ nav a {
     font-size:16px;
   }
   th {
-    background-color: yellow;
+    background-color: white;
   }
   caption {
     text-align: center;
