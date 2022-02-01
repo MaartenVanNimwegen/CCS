@@ -34,7 +34,7 @@
 <body>
 
 <?php
-include('conn.php');
+include('connection.php');
 $status="";
 if (isset($_POST['code']) && $_POST['code']!=""){
 $code = $_POST['code'];
@@ -83,7 +83,7 @@ mysqli_close($conn);
 		<div class="container">
 			<div class="row product-lists">
                 <?php
-                include 'conn.php';
+                include 'connection.php';
 
                 $result = mysqli_query($conn,"SELECT * FROM `products`");
                 
