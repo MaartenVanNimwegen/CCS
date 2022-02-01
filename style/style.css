@@ -44,7 +44,8 @@ html {
     padding: 80px;
     background-color: rgb(211, 211, 211);
   }
-  .child img {
+  .image {
+    top: auto;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
