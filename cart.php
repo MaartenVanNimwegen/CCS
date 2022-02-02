@@ -33,7 +33,7 @@ if (isset($_POST['action']) && $_POST['action']=="change"){
 <body>
 <div style="width:700px; margin:50 auto;">
 
-<h2>Demo</h2>   
+<h2>Winkelwagen</h2>   
 
 <?php
 if(!empty($_SESSION["shopping_cart"])) {
