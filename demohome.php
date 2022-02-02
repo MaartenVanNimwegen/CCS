@@ -64,7 +64,7 @@ while($row = mysqli_fetch_assoc($result)){
 			  <div class='image'><img src='".$row['image']."' class='imagee' /></div>
 			  <div class='name'>".$row['name']."</div>
 		   	  <div class='price'>$".$row['price']."</div>
-			  <button type='submit' class='buy'>Buy Now</button>
+			  <button type='submit' class='buy'>Voeg toe</button>
 			  </form>
 		   	  </div>";
         }
