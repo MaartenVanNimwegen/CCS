@@ -7,6 +7,7 @@ $email= $_GET['email'];
 $telef =  $_GET['telef'];
 $aantal = $_GET['tijd'];
 $totaal = $_GET['totaal'];
+$ID = $_GET['ID'];
 
 $receiver = array($email, 'kevinka1239@gmail.com');
 $subject="Uw bestelling is verzonden";
@@ -27,7 +28,7 @@ if(mail(implode(',',$receiver), $subject, $body)){
 include("conn.php");
 error_reporting(0);
 
-$query1 = "DELETE FROM bestelling WHERE naam='$naam' && totaal='$totaal' && telef='$telef' && email='$email'  && datum='$datum'  && adres='$adres'  && tijd='$tijd'";
+$query1 = "DELETE FROM bestelling WHERE naam='$naam' && totaal='$totaal' && telef='$telef' && email='$email'  && datum='$datum'  && adres='$adres'  && tijd='$tijd'  && id='$ID' ";
 
 $data1=mysqli_query($conn, $query1);
 

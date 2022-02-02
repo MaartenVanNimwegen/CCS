@@ -100,7 +100,7 @@ if($total!=0){
       <td>".$result['tijd']."</td>
       <td>".$result['adres']."</td>
       <td>".'€'.$result['totaal']."</td>
-      <td><a href='versturen.php?naam=$result[naam]&telef=$result[telef]&email=$result[email]&datum=$result[datum]' onclick='return checkdelete()'><input type='submit' value='Versturen' id='deletebtn'></a></td>
+      <td><a href='versturen.php?naam=$result[naam]&telef=$result[telef]&email=$result[email]&datum=$result[datum]' onclick='return checkdelete()'><input type='submit' value='I' id='deletebtn'></a></td>
       </tr>
       ";
   }
