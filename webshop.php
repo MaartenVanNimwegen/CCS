@@ -34,6 +34,7 @@
 <body>
 
 <?php
+session_start();
 include('connection.php');
 $status="";
 if (isset($_POST['code']) && $_POST['code']!=""){
@@ -90,13 +91,16 @@ mysqli_close($conn);
                 while($row = mysqli_fetch_assoc($result)){
 		            echo "<div class='col-lg-4 col-md-6 text-center'>
                             <div class='single-product-item'>
+														<form method='post' action=''>
+														<input type='hidden' name='code' value=".$row['code']." />										
 						        <div class='product-image'>
 							        <img src='" . $row['image'] . "' alt=''></a>
 						        </div>
 						        <h3>" . $row['name'] . "</h3>
 						        <p class='product-price'><span>Per st</span>€" . $row['price'] . "</p>
-						        <a href='cart.php' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</a>
+						        <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</button>
 					        </div>
+									</form>
 				        </div>";
                 }
 
