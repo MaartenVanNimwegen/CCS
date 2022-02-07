@@ -6,7 +6,7 @@ $email= $_GET['email'];
 $telef =  $_GET['telef'];
 $totaal = $_GET['totaal'];
 
-$receiver = array($email, 'kevinka1239@gmail.com');
+$receiver = array($email, 'css.online.shop@gmail.com');
 $subject="Uw bestelling is verzonden";
 $body = "Beste $naam, \r\nUw bestelling op $datum voor $totaal is klaar om op te halen
 U kunt het ophalen in 43 minuten
