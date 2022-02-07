@@ -1,5 +1,5 @@
 <?php
-include 'conn.php';
+include 'connection.php';
 //
 $sql=" SELECT * FROM bestel";
 $result = $conn->query($sql);
