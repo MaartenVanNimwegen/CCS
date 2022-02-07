@@ -101,7 +101,7 @@ if($total!=0){
       <td>".$result['tijd']."</td>
       <td>".$result['adres']."</td>
       <td>".'€'.$result['totaal']."</td>
-      <td>".$result['name']."/td>
+      <td>".$result['name']."</td>
       </tr>
       ";
   }
