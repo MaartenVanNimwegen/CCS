@@ -51,7 +51,7 @@ $cart_count = count(array_keys($_SESSION["shopping_cart"]));
 <div class="cart">
 <?php
 if(isset($_SESSION["shopping_cart"])){
-    $total_price = 0;
+    $totaal = 0;
 ?>	
 <table class="table">
 <tbody>
@@ -84,6 +84,24 @@ foreach ($_SESSION["shopping_cart"] as $product){
 <option <?php if($product["quantity"]==3) echo "selected";?> value="3">3</option>
 <option <?php if($product["quantity"]==4) echo "selected";?> value="4">4</option>
 <option <?php if($product["quantity"]==5) echo "selected";?> value="5">5</option>
+<option <?php if($product["quantity"]==6) echo "selected";?> value="6">6</option>
+<option <?php if($product["quantity"]==7) echo "selected";?> value="7">7</option>
+<option <?php if($product["quantity"]==8) echo "selected";?> value="8">8</option>
+<option <?php if($product["quantity"]==9) echo "selected";?> value="9">9</option>
+<option <?php if($product["quantity"]==11) echo "selected";?> value="11">11</option>
+<option <?php if($product["quantity"]==12) echo "selected";?> value="12">12</option>
+<option <?php if($product["quantity"]==13) echo "selected";?> value="13">13</option>
+<option <?php if($product["quantity"]==14) echo "selected";?> value="14">14</option>
+<option <?php if($product["quantity"]==15) echo "selected";?> value="15">15</option>
+<option <?php if($product["quantity"]==16) echo "selected";?> value="16">16</option>
+<option <?php if($product["quantity"]==17) echo "selected";?> value="17">17</option>
+<option <?php if($product["quantity"]==18) echo "selected";?> value="18">18</option>
+<option <?php if($product["quantity"]==19) echo "selected";?> value="19">19</option>
+<option <?php if($product["quantity"]==20) echo "selected";?> value="20">20</option>
+<option <?php if($product["quantity"]==21) echo "selected";?> value="21">21</option>
+<option <?php if($product["quantity"]==22) echo "selected";?> value="22">22</option>
+<option <?php if($product["quantity"]==23) echo "selected";?> value="23">23</option>
+<option <?php if($product["quantity"]==24) echo "selected";?> value="24">24</option>
 </select>
 </form>
 </td>
@@ -91,13 +109,16 @@ foreach ($_SESSION["shopping_cart"] as $product){
 <td><?php echo "€".$product["price"]*$product["quantity"]; ?></td>
 </tr>
 <?php
-$total_price += ($product["price"]*$product["quantity"]);
+$totaal += ($product["price"]*$product["quantity"]);
 }
 ?>
 <tr>
 <td colspan="5" align="right">
-<strong>TOTAL: <?php echo "€".$total_price; ?></strong>
+<strong>TOTAL: <?php echo "€".$totaal; ?></strong>
 </td>
+</tr>
+<tr colspan="5" align="right">
+<td><a href='versturen.php?naam=$result[naam]&telef=$result[telef]&email=$result[email]&datum=$result[datum]&product=$result[name]&product=$result[quantity]&totaal=$result[totaal]' onclick='return checkdelete()'><input type='submit' value='bestellen' id='deletebtn'></a></td>
 </tr>
 </tbody>
 </table>		
