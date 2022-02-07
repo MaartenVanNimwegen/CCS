@@ -1,13 +1,13 @@
 <?php
-
+include("connection.php");
 $naam= $_GET['naam'];
-$bpostcode =  $_GET['adres'];
+$adres =  $_GET['adres'];
 $datum = $_GET['datum'];
 $email= $_GET['email'];
 $telef =  $_GET['telef'];
-$aantal = $_GET['tijd'];
+$tijd = $_GET['tijd'];
 $totaal = $_GET['totaal'];
-$ID = $_GET['ID'];
+$id = $_GET['id'];
 
 $receiver = array($email, 'kevinka1239@gmail.com');
 $subject="Uw bestelling is verzonden";
@@ -25,10 +25,10 @@ if(mail(implode(',',$receiver), $subject, $body)){
 }
 
 
-include("connection.php");
+
 error_reporting(0);
 
-$query1 = "INSERT INTO bestelling WHERE naam='$naam' && totaal='$totaal' && telef='$telef' && email='$email'  && datum='$datum'  && adres='$adres'  && tijd='$tijd'  && id='$ID' ";
+$query1 = "INSERT into bestelling WHERE naam='$naam' && totaal='$totaal' && telef='$telef' && email='$email'  && datum='$datum'  && adres='$adres'  && tijd='$tijd'  && id='$id' ";
 
 $data1=mysqli_query($conn, $query1);
 
