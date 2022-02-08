@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="style/style.css">
 
 	<!-- title -->
-	<title>voetzeloverzicht</title>
+	<title>Voetzeloverzicht</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
