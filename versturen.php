@@ -1,15 +1,12 @@
 <?php
 
 $naam= $_GET['naam'];
-$bpostcode =  $_GET['adres'];
 $datum = $_GET['datum'];
 $email= $_GET['email'];
 $telef =  $_GET['telef'];
-$aantal = $_GET['tijd'];
 $totaal = $_GET['totaal'];
-$ID = $_GET['ID'];
 
-$receiver = array($email, 'kevinka1239@gmail.com');
+$receiver = array($email, 'css.online.shop@gmail.com');
 $subject="Uw bestelling is verzonden";
 $body = "Beste $naam, \r\nUw bestelling op $datum voor $totaal is klaar om op te halen
 U kunt het ophalen in 43 minuten
@@ -28,7 +25,7 @@ if(mail(implode(',',$receiver), $subject, $body)){
 include("connection.php");
 error_reporting(0);
 
-$query1 = "DELETE FROM bestelling WHERE naam='$naam' && totaal='$totaal' && telef='$telef' && email='$email'  && datum='$datum'  && adres='$adres'  && tijd='$tijd'  && id='$ID' ";
+$query1 = "INSERT INTO bestelling WHERE naam='$naam' && name='$product' && totaal='$totaal' && telef='$telef' && email='$email'  && datum='$datum'  && adres='$adres'  && tijd='$tijd'  && id='$id && code='$product' ";
 
 $data1=mysqli_query($conn, $query1);
 
