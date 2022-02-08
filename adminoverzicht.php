@@ -1,7 +1,8 @@
 <?php
 include 'connection.php';
+include 'header.php';
 //
-$sql=" SELECT * FROM bestel";
+$sql=" SELECT * FROM bestelling";
 $result = $conn->query($sql);
 ?>
 
@@ -41,7 +42,7 @@ nav a {
     font-size:16px;
   }
   th {
-    background-color: white;
+    background-color: red;
   }
   caption {
     text-align: center;
@@ -50,18 +51,14 @@ nav a {
     font-size:30px;
     font-weight:bold ;
   } 
-  #deletebtn{
-    background-color:red;
-    color:white;
-    width:120px;
-    height:25px;
-    font-size:18px
+  
+center {
+  color: black;
 }
   
 </style>
 <header>
 <form method='POST' action=""> 
- <input type="submit" name="loguit">loguit</input>
 </form> 
     
 
@@ -95,13 +92,14 @@ if($total!=0){
       <tr>
       
       <td>".$result['naam']."</td>
+      <td>".$result['name']."</td>
       <td>".$result['telef']."</td>
       <td>".$result['email']."</td>
       <td>".$result['datum']."</td>
       <td>".$result['tijd']."</td>
       <td>".$result['adres']."</td>
       <td>".'€'.$result['totaal']."</td>
-      <td>".$result['name']."</td>
+      
       </tr>
       ";
   }
