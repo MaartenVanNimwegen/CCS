@@ -15,6 +15,7 @@ if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);
+	$hashedpassword = password_hash("$password", PASSWORD_DEFAULT);
 
 	if ($password == $cpassword) {
 		$sql = "SELECT * FROM users WHERE email='$email'";
