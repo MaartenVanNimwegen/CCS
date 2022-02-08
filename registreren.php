@@ -20,8 +20,8 @@ if (isset($_POST['submit'])) {
 		$sql = "SELECT * FROM users WHERE email='$email'";
 		$result = mysqli_query($conn, $sql);
 		if (!$result->num_rows > 0) {
-			$sql = "INSERT INTO users (username, email, password)
-					VALUES ('$username', '$email', '$password')";
+			$sql = "INSERT INTO users (username, email, password, cpassword)
+					VALUES ('$username', '$email', '$password', '$cpassword')";
 			$result = mysqli_query($conn, $sql);
 			if ($result) {
 				echo "<script>alert('Wow! User Registratie klaar.')</script>";
@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
 				$_POST['password'] = "";
 				$_POST['cpassword'] = "";
 			} else {
-				echo "<script>alert('Woops! Something Wrong Went.')</script>";
+				echo "<script>alert('Woops! Something Went Wrong .')</script>";
 			}
 		} else {
 			echo "<script>alert('Woops! Er bestaat al een account met deze email.')</script>";
