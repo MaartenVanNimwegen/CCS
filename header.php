@@ -9,10 +9,10 @@
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="#"><i class="shopping-cart"></i></a>
         <a href="#">Inventaris</a>
         <a href="#">Login</a>
-        <a href="artikeltoevoegen.php">Plusje</a>
+        <a href="artikeltoevoegen.php"><i class="fa fa-plus"></i></a>
+        <a href="cart.php"><i class="fa fa-shopping-cart"></i></a>
         <a href="javascript:void(0);" class="icon"  onclick="myFunction()">
         <i class="fa fa-bars"></i>
         </a>
