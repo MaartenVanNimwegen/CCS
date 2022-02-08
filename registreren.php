@@ -2,7 +2,7 @@
 
 include 'Connection.php';
 
-error_reporting(0);
+
 
 session_start();
 
@@ -20,8 +20,8 @@ if (isset($_POST['submit'])) {
 		$sql = "SELECT * FROM users WHERE email='$email'";
 		$result = mysqli_query($conn, $sql);
 		if (!$result->num_rows > 0) {
-			$sql = "INSERT INTO users (username, email, password)
-					VALUES ('$username', '$email', '$password')";
+			$sql = "INSERT INTO users (username, email, password, cpassword)
+					VALUES ('$username', '$email', '$password', '$cpassword')";
 			$result = mysqli_query($conn, $sql);
 			if ($result) {
 				echo "<script>alert('pow! Gebruiker Registratie klaar.')</script>";
@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
 				$_POST['cpassword'] = "";
 				//deze melding krijg je als je niet kunt verbinden met de server
 			} else {
-				echo "<script>alert('Woops! Something Wrong Went.')</script>";
+				echo "<script>alert('Woops! Something Went Wrong .')</script>";
 			}
 			//melding die je krijgt als je een account probeert te maken maar de email is al in gebruik
 		} else {
