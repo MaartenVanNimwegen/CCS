@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="style/style.css">
 
 	<!-- title -->
 	<title>voetzeloverzicht</title>
@@ -92,14 +92,14 @@ mysqli_close($conn);
                 while($row = mysqli_fetch_assoc($result)){
 		            echo "<div class='col-lg-4 col-md-6 text-center'>
                             <div class='single-product-item'>
-														<form method='post' action=''>
-														<input type='hidden' name='code' value=".$row['code']." />										
+								<form method='post' action=''>
+								<input type='hidden' name='code' value=".$row['code']." />										
 						        <div class='product-image'>
 							        <img src='" . $row['image'] . "' alt=''></a>
 						        </div>
 						        <h3>" . $row['name'] . "</h3>
 						        <p class='product-price'><span>Per st</span>€" . $row['price'] . "</p>
-						        <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</button>
+						        <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i> Bestel</button>
 					        </div>
 									</form>
 				        </div>";
@@ -110,7 +110,6 @@ mysqli_close($conn);
             </div>
 		</div>
 	</div>
-	<!-- end products -->
 	<!-- jquery -->
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
 	<!-- bootstrap -->
