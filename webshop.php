@@ -1,94 +1,98 @@
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
 
+	<!-- title -->
+	<title>voetzeloverzicht</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="assets/css/all.min.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="assets/css/owl.carousel.css">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<!-- animate css -->
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="assets/css/meanmenu.min.css">
+	<!-- main style -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- responsive -->
+	<link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
 <body>
-<?php
-        include 'connection.php';
 
-        $query= "SELECT * FROM artikelen";
-        $data = mysqli_query($conn,$query);
-        $total = mysqli_num_rows($data);
-        
+<?php
+    
+if(!empty($_SESSION["shopping_cart"])) {
+    $cart_count = count(array_keys($_SESSION["shopping_cart"]));?><div class="cart_div"><a href="cart.php"><img src="cart-icon.png" /> Cart<span><?php echo $cart_count; ?></span></a></div><?php
+}
+
+mysqli_close($conn);
 ?>
-<div class="container">
-<?php
 
-        if ($total != 0) {
-            while ($result=mysqli_fetch_assoc($data)) {
-                echo "<div class='child'>" . $result['naam'] . "<br> €" . $result['prijs'] . "</div>";
-            }
-        }
-        else {
-            echo "Er is geen data gevonden!";
-        }
-?>
-</div>
+    <div class="product-section mt-150 mb-150">
+		<div class="container">
+			<div class="row product-lists">
+                <?php
+                include 'connection.php';
 
-<?php include "connection.php"; ?>
-<!-- foto uploaden -->
-<?php
-    $error_message = "";$success_message = "";
+                $result = mysqli_query($conn,"SELECT * FROM `products`");
+                
+                while($row = mysqli_fetch_assoc($result)){
+		            echo "<div class='col-lg-4 col-md-6 text-center'>
+                            <div class='single-product-item'>
+														<form method='post' action=''>
+														<input type='hidden' name='code' value=".$row['code']." />										
+						        <div class='product-image'>
+							        <img src='" . $row['image'] . "' alt=''></a>
+						        </div>
+						        <h3>" . $row['name'] . "</h3>
+						        <p class='product-price'><span>Per st</span>€" . $row['price'] . "</p>
+						        <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</button>
+					        </div>
+									</form>
+				        </div>";
+                }
 
-    // haalt naam en bestandsnaam op
+                mysqli_close($conn);
+				?>
+            </div>
+		</div>
+	</div>
+	<!-- end products -->
+	<!-- jquery -->
+	<script src="assets/js/jquery-1.11.3.min.js"></script>
+	<!-- bootstrap -->
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<!-- count down -->
+	<script src="assets/js/jquery.countdown.js"></script>
+	<!-- isotope -->
+	<script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+	<!-- waypoints -->
+	<script src="assets/js/waypoints.js"></script>
+	<!-- owl carousel -->
+	<script src="assets/js/owl.carousel.min.js"></script>
+	<!-- magnific popup -->
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<!-- mean menu -->
+	<script src="assets/js/jquery.meanmenu.min.js"></script>
+	<!-- sticker js -->
+	<script src="assets/js/sticker.js"></script>
+	<!-- main js -->
+	<script src="assets/js/main.js"></script>
 
-    if(isset($_POST['submit'])){
-        $naam = trim($_POST['name']);
-        $foto = trim($_POST['fileToUpload']);
-
-
-        $isValid = true;
-
-        // checkt of alle velden ingevuld zijn
-
-        if($naam == ''|| $foto == '' ){
-        $isValid = false;
-        $error_message = "Vul alle velden in.";
-        }
-
-        if($isValid){
-
-            // checkt of de naam beschikbaar is
-
-            $stmt = $con->prepare("SELECT * FROM artikelen WHERE Naam = ?");
-            $stmt -> bind_param("s", $naam);
-            $stmt -> execute();
-            $result = $stmt->get_result();
-            $stmt->close();
-            if($result->num_rows > 0){
-                $isValid = false;
-                $error_message = "Naam bestaat al";
-            }
-        }
-
-         // zet het in de db
-
-        if($isValid){
-            $insertSQL = "INSERT INTO artikelen (img) values(?)";
-            $stmt = $con-> prepare($insertSQL);
-            $stmt->bind_param("ss", $naam,$foto);
-            $stmt -> execute();
-            $stmt -> close();
-           
-            $success_message = "categorie toegevoegd";
-        }
-
-    }
-    ?>
-    <!-- invulformulier -->
-<center>
-    <body>  
-        <form class="formcat" action="upload.php" method="post" enctype="multipart/form-data">
-            <p> Naam: <br> </p>
-            <input type="text" name="name" class="gegevens" placeholder="Naam"><br><br>
-            <p> Selecteer foto: <br> </p>
-            <input class="bestand" type="file" name="fileToUpload" id="fileToUpload">   <br>
-            <input class="upload" type="submit" value="Upload foto" name="submit">
-        </form>
-    </body>
-</center>
 </body>
 </html>
