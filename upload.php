@@ -7,6 +7,7 @@
         $file = $_POST['file'];
         
         $query = "INSERT INTO products (`name`, `price`, `image`) VALUES ('" . $naam . "', '" . $prijs . "', '" . $file . "');";
-        $result = $conn->query($query);
+
+        $result = mysqli_query($conn, $query);
     }
 ?>
