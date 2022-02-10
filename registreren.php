@@ -2,7 +2,7 @@
 
 include 'Connection.php';
 
-error_reporting(0);
+
 
 session_start();
 
@@ -15,27 +15,30 @@ if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);
+	$hashedpassword = password_hash("$password", PASSWORD_DEFAULT);
 
 	if ($password == $cpassword) {
 		$sql = "SELECT * FROM users WHERE email='$email'";
 		$result = mysqli_query($conn, $sql);
 		if (!$result->num_rows > 0) {
 			$sql = "INSERT INTO users (username, email, password)
-					VALUES ('$username', '$email', '$password')";
+					VALUES ('$username', '$email', '$password', )";
 			$result = mysqli_query($conn, $sql);
 			if ($result) {
-				echo "<script>alert('Wow! User Registratie klaar.')</script>";
+				echo "<script>alert('pow! Gebruiker Registratie klaar.')</script>";
 				$username = "";
 				$email = "";
 				$_POST['password'] = "";
 				$_POST['cpassword'] = "";
+				//deze melding krijg je als je niet kunt verbinden met de server
 			} else {
-				echo "<script>alert('Woops! Something Wrong Went.')</script>";
+				echo "<script>alert('Woops! Something Went Wrong .')</script>";
 			}
+			//melding die je krijgt als je een account probeert te maken maar de email is al in gebruik
 		} else {
 			echo "<script>alert('Woops! Er bestaat al een account met deze email.')</script>";
 		}
-		
+		//melding die je krijgt als de twee ingevoerde wachtwoorden niet overeenkomen
 	} else {
 		echo "<script>alert('Wachtwoord matched niet.')</script>";
 	}
@@ -74,7 +77,7 @@ if (isset($_POST['submit'])) {
 			<div class="input-group">
 				<button name="submit" class="btn">Registreren</button>
 			</div>
-			<p class="login-register-text">Heb je al een account? <a href="index.php">Log hier in</a>.</p>
+			<p class="login-register-text">Heb je al een account? <a href="login.php">Log hier in</a>.</p>
 		</form>
 	</div>
 </body>

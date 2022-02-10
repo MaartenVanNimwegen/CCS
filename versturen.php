@@ -13,7 +13,7 @@ U kunt het ophalen in 43 minuten
 eet smakelijk!
 
 Met vriendelijke groet,
-click collect snack";
+Click Collect Snack";
 
 if(mail(implode(',',$receiver), $subject, $body)){
   ?>
