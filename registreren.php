@@ -11,7 +11,7 @@ if (isset($_SESSION['username'])) {
 }
 
 if (isset($_POST['submit'])) {
-	$username = $_POST['user_name'];
+	$username = $_POST['username'];
 	$email = $_POST['email'];
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);
@@ -21,8 +21,8 @@ if (isset($_POST['submit'])) {
 		$sql = "SELECT * FROM users WHERE email='$email'";
 		$result = mysqli_query($conn, $sql);
 		if (!$result->num_rows > 0) {
-			$sql = "INSERT INTO users (username, email, password, cpassword)
-					VALUES ('$username', '$email', '$password', '$cpassword')";
+			$sql = "INSERT INTO users (username, email, password)
+					VALUES ('$username', '$email', '$password', )";
 			$result = mysqli_query($conn, $sql);
 			if ($result) {
 				echo "<script>alert('pow! Gebruiker Registratie klaar.')</script>";

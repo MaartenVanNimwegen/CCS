@@ -34,15 +34,15 @@ session_start();
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//iets word gepost
-		$user_name = $_POST['user_name'];
+		$username = $_POST['username'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+		if(!empty($username) && !empty($password) && !is_numeric($username))
 		{
 
 			//lezen van database
-			$query = "select * from users where user_name = '$user_name' limit 1";
+			$query = "SELECT * from users where username = '$username' limit 1";
 			$result = mysqli_query($conn, $query);
 
 			if($result)
