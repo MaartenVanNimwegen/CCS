@@ -8,16 +8,15 @@
     <title>Artikel toevoegen</title>
 </head>
 <body>
+    <?php include 'header.php'; ?>
     <div class="container">
-        <div class="form">
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-                <input type="text" name="name" class="input" placeholder="Naam"><br>
-                <input class="input" type="name" name="code" placeholder="Code"><br>
-                <input class="input" type="name" name="price" placeholder="Prijs"><br>
-                <input class="bestand" type="file" name="fileToUpload" id="fileToUpload"><br>
-                <input class="upload" type="submit" value="Upload foto" name="submit">
-            </form>
-        </div>
+        <form class="form" action="upload.php" method="post" enctype="multipart/form-data">
+            <input class="input" type="text" name="name"  placeholder="Naam"><br>
+            <input class="input" type="name" name="code" placeholder="Code"><br>
+            <input class="input" type="name" name="price" placeholder="Prijs"><br>
+            <input class="upload" type="file" name="fileToUpload" id="fileToUpload"><br>
+            <input class="upload" type="submit" value="Upload foto" name="submit">
+        </form>
     </div>
 </body>
 </html>
