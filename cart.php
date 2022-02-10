@@ -2,16 +2,17 @@
 session_start();
 $status="";
 if (isset($_POST['action']) && $_POST['action']=="remove"){
-	if(!empty($_SESSION["shopping_cart"])) {
-		foreach($_SESSION["shopping_cart"] as $key => $value) {
-			if($_POST["code"] == $key){
-				unset($_SESSION["shopping_cart"][$key]);
-				$status = "<div class='box' style='color:red;'>Product is removed from your cart!</div>";
-			}
-			if(empty($_SESSION["shopping_cart"]))
-			unset($_SESSION["shopping_cart"]);
-		}		
-	}
+if(!empty($_SESSION["shopping_cart"])) {
+	foreach($_SESSION["shopping_cart"] as $key => $value) {
+		if($_POST["code"] == $key){
+		unset($_SESSION["shopping_cart"][$key]);
+		$status = "<div class='box' style='color:red;'>
+		Product is removed from your cart!</div>";
+		}
+		if(empty($_SESSION["shopping_cart"]))
+		unset($_SESSION["shopping_cart"]);
+			}		
+		}
 }
 
 if (isset($_POST['action']) && $_POST['action']=="change"){
@@ -117,7 +118,7 @@ $totaal += ($product["price"]*$product["quantity"]);
 </td>
 </tr>
 <tr colspan="5" align="right">
-<td><a href='versturen.php?naam=$result[naam]&telef=$result[telef]&email=$result[email]&datum=$result[datum]&product=$result[name]&product=$result[quantity]&totaal=$result[totaal]' onclick='return checkdelete()'><input type='submit' value='bestellen' id='deletebtn'></a></td>
+<td><a href='versturen.php?naam=$result[naam]&telef=$result[telef]&email=$result[email]&datum=$result[datum]&name=$result[name]&totaal=$result[totaal]&code=$result[code]&tijd=$result[tijd]&id=$result[id]&adres=$result[adres]' onclick='return checkdelete()'><input type='submit' value='bestellen'></a></td>
 </tr>
 </tbody>
 </table>		
