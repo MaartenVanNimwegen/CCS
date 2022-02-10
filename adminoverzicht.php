@@ -138,7 +138,7 @@ if($total!=0){
       <td>".$result['tijd']."</td>
       <td>".$result['adres']."</td>
       <td>".'€'.$result['totaal']."</td>
-      <td><a style='color: black;' class='fas fa-info' href='?apparaat=" . $result['naam'] . "#myForm'></a></td>
+      <td><a style='color: black;' class='fas fa-info' href='?id=" . $result['id'] . "#myForm'></a></td>
       
       </tr>
       ";
@@ -149,19 +149,30 @@ if($total!=0){
       <th colspan='2'>Er is geen data gevonden!!!</th>
       </tr>
       ";
-  }
-  ?>
+  } ?>
+ 
   </table>
 
-  <div class="form-popup" id="myForm">
-    <a type="button" class="sluitknop" href="/CCS/adminoverzicht.php#">&times;</a>
+  <div class='form-popup' id='myForm'>
+
+<?php
+ $id= $_GET['id'];
+$sql= "SELECT * FROM bestelling where id=$id";
+$res = $conn->query($sql);
+if ($res) {
+  foreach ($res as $result) {
+echo"
+   
+<td>".$result['tijd']."</td>
+
+
+";}} ?>
+      
+
+    <a type='button' class='sluitknop' href='/CCS/adminoverzicht.php#'>&times;</a>
 
 </div>
   
 </body>
-<script>
-function checkdelete(){
-  return confirm('Weet je zeker dat je deze bestelling hebt verzonden?');
-}
-</script>
+
 </html>
