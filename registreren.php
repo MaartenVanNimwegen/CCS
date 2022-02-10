@@ -11,7 +11,7 @@ if (isset($_SESSION['username'])) {
 }
 
 if (isset($_POST['submit'])) {
-	$username = $_POST['user_name'];
+	$username = $_POST['username'];
 	$email = $_POST['email'];
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);

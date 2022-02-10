@@ -18,10 +18,7 @@ function check_login($con)
 		}
 	}
 
-	//stuurt je terug naar login
-	header("Location: login.php");
-	die;
-
+	
 }
 
 
@@ -34,15 +31,15 @@ session_start();
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//iets word gepost
-		$user_name = $_POST['user_name'];
+		$user_name = $_POST['username'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+		if(!empty($username) && !empty($password) && !is_numeric($username))
 		{
 
 			//lezen van database
-			$query = "select * from users where user_name = '$user_name' limit 1";
+			$query = "select * from users where username = '$username' limit 1";
 			$result = mysqli_query($conn, $query);
 
 			if($result)
@@ -90,7 +87,7 @@ session_start();
 		<form method="post">
 			<div style="font-size: 20px;margin: 10px;color: white;">Login</div>
 
-			<input placeholder="gebruikersnaam" id="text" type="text" name="user_name"><br><br>
+			<input placeholder="gebruikersnaam" id="text" type="text" name="username"><br><br>
 			<input placeholder="wachtwoord" id="text" type="password" name="password"><br><br>
 
 			<input id="button" type="submit" value="Login"><br><br>
@@ -131,3 +128,4 @@ session_start();
 	}
 	
 	</style>
+	
