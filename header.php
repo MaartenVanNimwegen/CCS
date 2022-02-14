@@ -9,7 +9,7 @@
 <body>
     <div class="topnav" id="myTopnav">
         <a href="index.php">Inventaris</a>
-        <a href="login.php">Login</a>
+        <a href="#Login">Login</a>
         <a href="cart.php"><i class="fa fa-shopping-cart"></i></a>
         <a href="javascript:void(0);" class="icon"  onclick="myFunction()">
         <i class="fa fa-bars"></i>
