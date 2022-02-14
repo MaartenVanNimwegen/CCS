@@ -1,18 +1,135 @@
-.login {
-    position: fixed;
-    box-shadow: 0px 25px 25px rgb(51, 51, 51);
-    background: #ffffff ;
-    left: 40%;
-    top: 20%;
-    width: 20%;
-    height: 40%;
-    border: 1px;
-    border-style: inset;
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-  }
-  .login:target {
-    visibility: visible;
-    opacity: 1;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+
+.containerr{
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding:20px;
+   padding-bottom: 60px;
+}
+
+.containerr .content{
+   text-align: center;
+}
+
+.containerr .content h3{
+   font-size: 30px;
+   color:#333;
+}
+
+.containerr .content h3 span{
+   background: crimson;
+   color:#fff;
+   border-radius: 5px;
+   padding:0 15px;
+}
+
+.containerr .content h1{
+   font-size: 50px;
+   color:#333;
+}
+
+.containerr .content h1 span{
+   color:crimson;
+}
+
+.containerr .content p{
+   font-size: 25px;
+   margin-bottom: 20px;
+}
+
+.containerr .content .btn{
+   display: inline-block;
+   padding:10px 30px;
+   font-size: 20px;
+   background: #333;
+   color:#fff;
+   margin:0 5px;
+   text-transform: capitalize;
+}
+
+.containerr .content .btn:hover{
+   background: crimson;
+}
+
+.form-containerr{
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding:20px;
+   padding-bottom: 60px;
+   background: #eee;
+}
+
+.form-containerr form{
+   padding:20px;
+   border-radius: 5px;
+   box-shadow: 0 5px 10px rgba(0,0,0,.1);
+   background: #fff;
+   text-align: center;
+   width: 500px;
+}
+
+.form-containerr form h3{
+   font-size: 30px;
+   text-transform: uppercase;
+   margin-bottom: 10px;
+   color:#333;
+}
+
+.form-containerr form input,
+.form-containerr form select{
+   width: 100%;
+   padding:10px 15px;
+   font-size: 17px;
+   margin:8px 0;
+   background: #eee;
+   border-radius: 5px;
+}
+
+.form-containerr form select option{
+   background: #fff;
+}
+
+.form-containerr form .form-btn{
+   background: #fbd0d9;
+   color:crimson;
+   text-transform: capitalize;
+   font-size: 20px;
+   cursor: pointer;
+}
+
+.form-containerr form .form-btn:hover{
+   background: crimson;
+   color:#fff;
+}
+
+.form-containerr form p{
+   margin-top: 10px;
+   font-size: 20px;
+   color:#333;
+}
+
+.form-containerr form p a{
+   color:crimson;
+}
+
+.form-containerr form .error-msg{
+   margin:10px 0;
+   display: block;
+   background: crimson;
+   color:#fff;
+   border-radius: 5px;
+   font-size: 20px;
+   padding:10px;
 }

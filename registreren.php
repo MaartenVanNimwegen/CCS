@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
 </head>
 <body>
    
-<div class="form-container">
+<div class="form-containerr">
 
    <form action="" method="post">
       <h3>registreer nu</h3>
@@ -59,14 +59,11 @@ if(isset($_POST['submit'])){
          };
       };
       ?>
-      <input type="text" name="name" required placeholder="enter your name">
-      <input type="email" name="email" required placeholder="enter your email">
-      <input type="password" name="password" required placeholder="enter your password">
-      <input type="password" name="cpassword" required placeholder="confirm your password">
-      <select name="user_type">
-         <option value="user">user</option>
-         <option value="admin">admin</option>
-      </select>
+      <input type="text" name="name" required placeholder="voer je naam in">
+      <input type="email" name="email" required placeholder="voer je email in">
+      <input type="password" name="password" required placeholder="voer je wachtwoord in">
+      <input type="password" name="cpassword" required placeholder="herhaal je wachtwoord">
+      
       <input type="submit" name="submit" value="register now" class="form-btn">
       <p>heb je al een account? <a href="login.php">log hier in</a></p>
    </form>

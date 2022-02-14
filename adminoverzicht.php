@@ -18,80 +18,6 @@ $result = $conn->query($sql);
   <title>Adminoverzicht</title>
 </head>
 
-nav a {
-  float: left;
-  display: block;
-  color: #ffffff;
-  text-align: center;
-  padding: 14px 30px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-  .login-button {
-  float: right;
-  text-align: center;
-  }
-  table {
-    width:100%;
-  }
-  table, th, td {
-    border: 3px solid;
-  }
-  .table th, .table td { 
-    text-align: center; 
-    padding: 0.25em;
-    font-size:16px;
-  }
-  th {
-    background-color: red;
-  }
-  caption {
-    text-align: center;
-    padding-top: 10px;
-    color: rgb(0, 0, 0);
-    font-size:30px;
-    font-weight:bold ;
-  } 
-  
-center {
-  color: black;
-}
-
-.form-popup {
-    position: fixed;
-    box-shadow: 0px 25px 25px rgb(51, 51, 51);
-    background: #ffffff ;
-    left: 32.5%;
-    top: 10%;
-    width: 35%;
-    height: 15%;
-    border: 1px;
-    border-style: inset;
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  .form-popup:target {
-    visibility: visible;
-    opacity: 1;
-}
-
- .sluitknop{
-  color: black;
-  position: relative;
-  top: 0rem;
-  float: right;
-  padding: 15px;
-  cursor: pointer;
-  opacity: 0.8;
-  font-size: x-large;
-}
-.sluitknop:hover{
-opacity: 1;
-}
-
 
   
 </style>
@@ -109,13 +35,13 @@ opacity: 1;
          <table class='fl-table'>
         <thead>
             <th>Naam</th>
-            <th>product naam</th>
-            <th>Emailadres</th>
             <th>datum</th>
             <th>tijd</th>
-            <th>Totaalbedrag</th>
+            <th>prijs</th>
             <th>info</th>
-            </tr>
+            </tr>  
+        </thead>
+        <tbody>
 <?php
 if(isset($_POST['loguit'])){
   session_destroy();
@@ -131,16 +57,11 @@ if($total!=0){
       <tr>
       
       <td>".$result['naam']."</td>
-      <td>".$result['name']."</td>
-      <td>".$result['email']."</td>
       <td>".$result['datum']."</td>
       <td>".$result['tijd']."</td>
       <td>".'€'.$result['totaal']."</td>
       <td><a style='color: black;' class='fas fa-info' href='?id=" . $result['id'] . "#myForm'></a></td>
-      <td>".$result['telef']."</td>
-      <td>".$result['adres']."</td>
-      
-      </tr>
+      <tbody>
       ";
   }
     }else{
@@ -163,11 +84,11 @@ if ($res) {
   foreach ($res as $result) {
 echo"
 <tr>
-<td>".$result['tijd']."</td>
+<td>".'tijd:'.$result['tijd']."</td>
 <br>
-<td>".$result['totaal']."</td>
+<td>".'$:'.$result['totaal']."</td>
 <br>
-<td>".$result['name']."</td>
+<td>".'producten:'.$result['name']."</td>
 </tr>
 
 ";}} ?>
