@@ -62,13 +62,16 @@
 }
 
 .form-containerr{
-   min-height: 100vh;
+   min-height: 24vh;
    display: flex;
    align-items: center;
    justify-content: center;
    padding:20px;
    padding-bottom: 60px;
    background: #eee;
+   border-radius: 5px ;
+   box-shadow: 0px 0px 12px 0px orange;
+ 
 }
 
 .form-containerr form{
@@ -133,3 +136,37 @@
    font-size: 20px;
    padding:10px;
 }
+
+.LOGIN {
+   position: fixed;
+   min-height: 24vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding:20px;
+   padding-bottom: 60px;
+   border-radius: 5px ;
+   transition: opacity 500ms;
+   visibility: hidden;
+   opacity: 0;
+   z-index: 99;
+   left: 31%;
+   top: 10%;
+ }
+ 
+ .LOGIN:target {
+   visibility: visible;
+   opacity: 1;
+ }
+ 
+ .sluitknop{
+ color: black;
+ position: relative;
+ float: right;
+ cursor: pointer;
+ opacity: 0.8;
+ font-size: x-large;
+ }
+ .sluitknop:hover{
+ opacity: 1;
+ }

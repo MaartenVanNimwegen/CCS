@@ -4,6 +4,7 @@ include 'connection.php';
 
 session_start();
 
+
 if(isset($_POST['submit'])){
 
    $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -68,9 +69,9 @@ if(isset($_POST['submit'])){
       <input type="password" name="password" required placeholder="vul je wachtwoord in">
       <input type="submit" name="submit" value="login now" class="form-btn">
       <p>heb je geen account? <a href="registreren.php">registreer nu</a></p>
+      <a type='button' class='sluitknop' href='#'>&times;</a>
    </form>
 
 </div>
-
 </body>
 </html>
