@@ -1319,7 +1319,10 @@ ul.product-share li:hover a {
   transition: 0.3s;
 }
 
-
+.single-product-item:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 
 .search-bar-tablecell button[type=submit] {
   -webkit-transition: 0.3s;
