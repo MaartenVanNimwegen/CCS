@@ -14,9 +14,9 @@ $result = $conn->query($sql);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="stylesheet" href="style/adminoverzicht.css">
   <title>Adminoverzicht</title>
 </head>
-<style>
 
 nav a {
   float: left;
@@ -65,7 +65,7 @@ center {
     left: 32.5%;
     top: 10%;
     width: 35%;
-    height: 60%;
+    height: 15%;
     border: 1px;
     border-style: inset;
     transition: opacity 500ms;
@@ -81,7 +81,7 @@ center {
  .sluitknop{
   color: black;
   position: relative;
-  top: 24.5rem;
+  top: 0rem;
   float: right;
   padding: 15px;
   cursor: pointer;
@@ -102,17 +102,17 @@ opacity: 1;
 
 
 <body>
-  <table class="center">
-    <caption>Orderoverzicht</caption>
+<br><br><br><br>
+
         <tr>
-            
+        <div class='table-wrapper'>
+         <table class='fl-table'>
+        <thead>
             <th>Naam</th>
             <th>product naam</th>
-            <th>Telefoonnummer</th>
             <th>Emailadres</th>
             <th>datum</th>
             <th>tijd</th>
-            <th>adres</th>
             <th>Totaalbedrag</th>
             <th>info</th>
             </tr>
@@ -132,13 +132,13 @@ if($total!=0){
       
       <td>".$result['naam']."</td>
       <td>".$result['name']."</td>
-      <td>".$result['telef']."</td>
       <td>".$result['email']."</td>
       <td>".$result['datum']."</td>
       <td>".$result['tijd']."</td>
-      <td>".$result['adres']."</td>
       <td>".'€'.$result['totaal']."</td>
       <td><a style='color: black;' class='fas fa-info' href='?id=" . $result['id'] . "#myForm'></a></td>
+      <td>".$result['telef']."</td>
+      <td>".$result['adres']."</td>
       
       </tr>
       ";
@@ -162,9 +162,13 @@ $res = $conn->query($sql);
 if ($res) {
   foreach ($res as $result) {
 echo"
-   
+<tr>
 <td>".$result['tijd']."</td>
-
+<br>
+<td>".$result['totaal']."</td>
+<br>
+<td>".$result['name']."</td>
+</tr>
 
 ";}} ?>
       

@@ -23,17 +23,17 @@ if(isset($_POST['submit'])){
       if($row['user_type'] == 'admin'){
 
          $_SESSION['admin_name'] = $row['name'];
-         header('location:adminoverzicht.php');
+         header('location:index.php');
 
       }elseif($row['user_type'] == 'user'){
 
          $_SESSION['user_name'] = $row['name'];
-         header('location:webshop.php');
+         header('location:index.php');
 
       }
-     
+	  
    }else{
-      $error[] = 'incorrect email or password!';
+      $error[] = 'verkeerd email or password!';
    }
 
 };
@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
    <title>login form</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="style/register.css">
+   <link rel="stylesheet" href="style/style.css">
 
 </head>
 <body>
