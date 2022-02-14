@@ -35,7 +35,7 @@ $result = $conn->query($sql);
             <th>datum</th>
             <th>tijd</th>
             <th>prijs</th>
-            <th>inf</th>
+            <th>info</th>
             </tr>  
         </thead>
         <tbody>
