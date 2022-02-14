@@ -35,13 +35,13 @@ $result = $conn->query($sql);
          <table class='fl-table'>
         <thead>
             <th>Naam</th>
-            <th>product naam</th>
-            <th>Emailadres</th>
             <th>datum</th>
             <th>tijd</th>
-            <th>Totaalbedrag</th>
+            <th>prijs</th>
             <th>info</th>
-            </tr>
+            </tr>  
+        </thead>
+        <tbody>
 <?php
 if(isset($_POST['loguit'])){
   session_destroy();
@@ -57,16 +57,11 @@ if($total!=0){
       <tr>
       
       <td>".$result['naam']."</td>
-      <td>".$result['name']."</td>
-      <td>".$result['email']."</td>
       <td>".$result['datum']."</td>
       <td>".$result['tijd']."</td>
       <td>".'€'.$result['totaal']."</td>
       <td><a style='color: black;' class='fas fa-info' href='?id=" . $result['id'] . "#myForm'></a></td>
-      <td>".$result['telef']."</td>
-      <td>".$result['adres']."</td>
-      
-      </tr>
+      <tbody>
       ";
   }
     }else{
