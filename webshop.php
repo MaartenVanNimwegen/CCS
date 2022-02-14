@@ -34,8 +34,12 @@
 </head>
 <body>
 <?php include'artikeltoevoegen.php'; ?>
-<a class="toevoegenknop" href="#Artikel_toevoegen"><i class='fa fa-plus'></i></a>
-<a href="javascript:void(0);" class="icon"  onclick="myFunction()">
+
+	<?php if(isset($_SESSION['is_logged_in'])):?>
+		<a class="toevoegenknop" href="#Artikel_toevoegen"><i class='fa fa-plus'></i></a>
+		<a href="javascript:void(0);" class="icon"  onclick="myFunction()">
+	<?php endif; ?>
+
 
 
 <?php
