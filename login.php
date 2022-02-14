@@ -1,133 +1,76 @@
 <?php
 
-function check_login($con)
-{
-
-	if(isset($_SESSION['user_id']))
-	{
-
-		$id = $_SESSION['user_id'];
-		$query = "select * from users where user_id = '$id' limit 1";
-
-		$result = mysqli_query($con,$query);
-		if($result && mysqli_num_rows($result) > 0)
-		{
-
-			$user_data = mysqli_fetch_assoc($result);
-			return $user_data;
-		}
-	}
-
-	//stuurt je terug naar login
-	header("Location: login.php");
-	die;
-
-}
-
-
+include 'connection.php';
 
 session_start();
 
-	include("connection.php");
+if(isset($_POST['submit'])){
 
+   $name = mysqli_real_escape_string($conn, $_POST['name']);
+   $email = mysqli_real_escape_string($conn, $_POST['email']);
+   $pass = md5($_POST['password']);
+   $cpass = md5($_POST['cpassword']);
+   $user_type = $_POST['user_type'];
 
-	if($_SERVER['REQUEST_METHOD'] == "POST")
-	{
-		//iets word gepost
-		$username = $_POST['username'];
-		$email = $_POST['email'];
-		$password = $_POST['password'];
+   $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
 
-		if(!empty($username) && !empty($password) && !is_numeric($username))
-		{
+   $result = mysqli_query($conn, $select);
 
-			//lezen van database
-			$query = "SELECT * from users where username = '$username' limit 1";
-			$result = mysqli_query($conn, $query);
+   if(mysqli_num_rows($result) > 0){
 
-			if($result)
-			{
-				if($result && mysqli_num_rows($result) > 0)
-				{
+      $row = mysqli_fetch_array($result);
 
-					$user_data = mysqli_fetch_assoc($result);
-					
-					if($user_data['password'] === $password)
-					{
+      if($row['user_type'] == 'admin'){
 
-						$_SESSION['usertype'] = $user_data['user'];
-						header("Location: webshop.php");
-						die;
-					}
-				}
-			}
-			
-			//bij verkeerd wachtwoord of username krijg je een melding
-			echo "verkeerd wachtwoord of gebruikersnaam!";
-		}else
-		{
-			echo "verkeerd wachtwoord of gebruikersnaam!";
-		}
-	}
+         $_SESSION['admin_name'] = $row['name'];
+         header('location:adminoverzicht.php');
 
+      }elseif($row['user_type'] == 'user'){
+
+         $_SESSION['user_name'] = $row['name'];
+         header('location:webshop.php');
+
+      }
+     
+   }else{
+      $error[] = 'incorrect email or password!';
+   }
+
+};
 ?>
 
-
 <!DOCTYPE html>
-<html>
-<head> <br> <br> <br>
-	<title>Login</title>
-	<link rel="stylesheet" href="style/style.css">
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>login form</title>
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="style/register.css">
+
 </head>
 <body>
-    
-	
-	
-	
+   
+<div class="form-container">
 
-	<div id="box">
-		
-		<form method="post">
-			<div style="font-size: 20px;margin: 10px;color: white;">Login</div>
+   <form action="" method="post">
+      <h3>login now</h3>
+      <?php
+      if(isset($error)){
+         foreach($error as $error){
+            echo '<span class="error-msg">'.$error.'</span>';
+         };
+      };
+      ?>
+      <input type="email" name="email" required placeholder="enter your email">
+      <input type="password" name="password" required placeholder="enter your password">
+      <input type="submit" name="submit" value="login now" class="form-btn">
+      <p>don't have an account? <a href="registreren.php">register now</a></p>
+   </form>
 
-			<input placeholder="gebruikersnaam" id="text" type="text" name="user_name"><br><br>
-			<input placeholder="wachtwoord" id="text" type="password" name="password"><br><br>
+</div>
 
-			<input id="button" type="submit" value="Login"><br><br>
-
-			<p class="login-tekst"> heb je geen account? <a class="geen-docent" href="registreren.php">klik hier</a><br><br> </p>
-		</form>
-	</div>
 </body>
 </html>
-<style type="text/css">
-	
-	#text{
-
-		height: 25px;
-		border-radius: 5px;
-		padding: 4px;
-		border: solid thin #aaa;
-		width: 100%;
-	}
-
-	#button{
-
-		padding: 10px;
-		width: 100px;
-		color: white;
-		background-color: #005da4;
-		border: none;
-	}
-
-	#box{
-
-		background-color: #505050;
-		box-shadow: 0px 25px 25px rgb(51, 51, 51);
-		margin: auto;
-		width: 300px;
-		padding: 20px;
-		border-radius:5px;
-	}
-	
-	</style>

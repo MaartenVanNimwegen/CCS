@@ -1,84 +1,77 @@
-<?php 
+<?php
 
-include 'Connection.php';
+@include 'connection.php';
 
+if(isset($_POST['submit'])){
 
+   $name = mysqli_real_escape_string($conn, $_POST['name']);
+   $email = mysqli_real_escape_string($conn, $_POST['email']);
+   $pass = md5($_POST['password']);
+   $cpass = md5($_POST['cpassword']);
+   $user_type = $_POST['user_type'];
 
-session_start();
+   $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
 
-if (isset($_SESSION['username'])) {
-    header("Location: index.php");
-}
+   $result = mysqli_query($conn, $select);
 
-if (isset($_POST['submit'])) {
-	$username = $_POST['username'];
-	$email = $_POST['email'];
-	$password = md5($_POST['password']);
-	$cpassword = md5($_POST['cpassword']);
-	$hashedpassword = password_hash("$password", PASSWORD_DEFAULT);
+   if(mysqli_num_rows($result) > 0){
 
-	if ($password == $cpassword) {
-		$sql = "SELECT * FROM users WHERE email='$email'";
-		$result = mysqli_query($conn, $sql);
-		if (!$result->num_rows > 0) {
-			$sql = "INSERT INTO users (username, email, password)
-					VALUES ('$username', '$email', '$password', )";
-			$result = mysqli_query($conn, $sql);
-			if ($result) {
-				echo "<script>alert('pow! Gebruiker Registratie klaar.')</script>";
-				$username = "";
-				$email = "";
-				$_POST['password'] = "";
-				$_POST['cpassword'] = "";
-				//deze melding krijg je als je niet kunt verbinden met de server
-			} else {
-				echo "<script>alert('Woops! Something Went Wrong .')</script>";
-			}
-			//melding die je krijgt als je een account probeert te maken maar de email is al in gebruik
-		} else {
-			echo "<script>alert('Woops! Er bestaat al een account met deze email.')</script>";
-		}
-		//melding die je krijgt als de twee ingevoerde wachtwoorden niet overeenkomen
-	} else {
-		echo "<script>alert('Wachtwoord matched niet.')</script>";
-	}
-}
+      $error[] = 'user bestaat al!';
+
+   }else{
+
+      if($pass != $cpass){
+         $error[] = 'password not matched!';
+      }else{
+         $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
+         mysqli_query($conn, $insert);
+         header('location:login.php');
+      }
+   }
+
+};
+
 
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>register form</title>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="style/register.css">
 
-	<link rel="stylesheet" type="text/css" href="style/Register.css">
-
-	<title>registreren</title>
 </head>
 <body>
-	<div class="container">
-		<form action="" method="POST" class="login-email">
-            <p class="login-text" style="font-size: 2rem; font-weight: 800;">Registreren</p>
-			<div class="input-group">
-				<input type="text" placeholder="Username" name="username" value="<?php echo $username; ?>" required>
-			</div>
-			<div class="input-group">
-				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
-			</div>
-			<div class="input-group">
-				<input type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
-            </div>
-            <div class="input-group">
-				<input type="password" placeholder="Confirm Password" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
-			</div>
-			<div class="input-group">
-				<button name="submit" class="btn">Registreren</button>
-			</div>
-			<p class="login-register-text">Heb je al een account? <a href="login.php">Log hier in</a>.</p>
-		</form>
-	</div>
+   
+<div class="form-container">
+
+   <form action="" method="post">
+      <h3>registreer nu</h3>
+      <?php
+      if(isset($error)){
+         foreach($error as $error){
+            echo '<span class="error-msg">'.$error.'</span>';
+         };
+      };
+      ?>
+      <input type="text" name="name" required placeholder="enter your name">
+      <input type="email" name="email" required placeholder="enter your email">
+      <input type="password" name="password" required placeholder="enter your password">
+      <input type="password" name="cpassword" required placeholder="confirm your password">
+      <select name="user_type">
+         <option value="user">user</option>
+         <option value="admin">admin</option>
+      </select>
+      <input type="submit" name="submit" value="register now" class="form-btn">
+      <p>heb je al een account? <a href="login.php">log hier in</a></p>
+   </form>
+
+</div>
+
 </body>
 </html>
