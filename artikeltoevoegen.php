@@ -21,9 +21,7 @@
                 <a type='button' class='sluitknop' href='#'>&times;</a>
             </form>
         </div>
-    </div    
     </div>
-
 
 
 </body>

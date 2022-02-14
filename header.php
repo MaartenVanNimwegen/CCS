@@ -7,13 +7,9 @@
         <link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
     </head>
 <body>
-  <?php
-include 'artikeltoevoegen.php'
-?>
     <div class="topnav" id="myTopnav">
         <a href="#">Inventaris</a>
         <a href="#">Login</a>
-        <a href="#Artikel_toevoegen"><i class='fa fa-plus'></i></a>";
         <a href="cart.php"><i class="fa fa-shopping-cart"></i></a>
         <a href="javascript:void(0);" class="icon"  onclick="myFunction()">
         <i class="fa fa-bars"></i>

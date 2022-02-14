@@ -33,6 +33,10 @@
 
 </head>
 <body>
+<?php include'artikeltoevoegen.php'; ?>
+<a class="toevoegenknop" href="#Artikel_toevoegen"><i class='fa fa-plus'></i></a>
+<a href="javascript:void(0);" class="icon"  onclick="myFunction()">
+
 
 <?php
 session_start();
@@ -98,7 +102,7 @@ mysqli_close($conn);
 							        <img src='" . $row['image'] . "' alt=''></a>
 						        </div>
 						        <h3>" . $row['name'] . "</h3>
-						        <p class='product-price'><span>Per st</span>€" . $row['price'] . "</p>
+						        <p class='product-price'><span>Per stuk</span>€" . $row['price'] . "</p>
 						        <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i> Bestel</button>
 					        </div>
 									</form>

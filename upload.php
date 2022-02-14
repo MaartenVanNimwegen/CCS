@@ -45,7 +45,7 @@ else{
         $insertsql = "INSERT into products (`name`, `code`, `price`, `image`) VALUES ('" . $naam . "', '" . $code . "', " . $prijs . ", '" . $target_file . "')";
 
         $insert = $conn->query($insertsql);
-        header("Location: artikeltoevoegen.php");
+        header("Location: index.php");
     }
     else {
         echo "Uploaded in helaas mislukt";
