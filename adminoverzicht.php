@@ -12,6 +12,8 @@ $result = $conn->query($sql);
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   <title>Adminoverzicht</title>
 </head>
 <style>
@@ -55,6 +57,42 @@ nav a {
 center {
   color: black;
 }
+
+.form-popup {
+    position: fixed;
+    box-shadow: 0px 25px 25px rgb(51, 51, 51);
+    background: #ffffff ;
+    left: 32.5%;
+    top: 10%;
+    width: 35%;
+    height: 60%;
+    border: 1px;
+    border-style: inset;
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .form-popup:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+ .sluitknop{
+  color: black;
+  position: relative;
+  top: 24.5rem;
+  float: right;
+  padding: 15px;
+  cursor: pointer;
+  opacity: 0.8;
+  font-size: x-large;
+}
+.sluitknop:hover{
+opacity: 1;
+}
+
+
   
 </style>
 <header>
@@ -76,6 +114,7 @@ center {
             <th>tijd</th>
             <th>adres</th>
             <th>Totaalbedrag</th>
+            <th>info</th>
             </tr>
 <?php
 if(isset($_POST['loguit'])){
@@ -99,6 +138,7 @@ if($total!=0){
       <td>".$result['tijd']."</td>
       <td>".$result['adres']."</td>
       <td>".'€'.$result['totaal']."</td>
+      <td><a style='color: black;' class='fas fa-info' href='?id=" . $result['id'] . "#myForm'></a></td>
       
       </tr>
       ";
@@ -109,15 +149,30 @@ if($total!=0){
       <th colspan='2'>Er is geen data gevonden!!!</th>
       </tr>
       ";
-  }
-  ?>
+  } ?>
+ 
   </table>
 
+  <div class='form-popup' id='myForm'>
+
+<?php
+ $id= $_GET['id'];
+$sql= "SELECT * FROM bestelling where id=$id";
+$res = $conn->query($sql);
+if ($res) {
+  foreach ($res as $result) {
+echo"
+   
+<td>".$result['tijd']."</td>
+
+
+";}} ?>
+      
+
+    <a type='button' class='sluitknop' href='/CCS/adminoverzicht.php#'>&times;</a>
+
+</div>
   
 </body>
-<script>
-function checkdelete(){
-  return confirm('Weet je zeker dat je deze bestelling hebt verzonden?');
-}
-</script>
+
 </html>

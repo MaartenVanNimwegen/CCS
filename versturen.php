@@ -23,11 +23,17 @@ if(mail(implode(',',$receiver), $subject, $body)){
 
 
 include("connection.php");
-error_reporting(0);
 
-$query1 = "INSERT INTO bestelling WHERE naam='$naam' && name='$product' && totaal='$totaal' && telef='$telef' && email='$email'  && datum='$datum'  && adres='$adres'  && tijd='$tijd'  && id='$id && code='$product' ";
 
-$data1=mysqli_query($conn, $query1);
+/*$sql = "INSERT INTO bestelling (naam,name,code,telef,email,datum,adres,tijd,totaal)
+SELECT name, totaal, code
+FROM products";
+
+$cartArray=implode("','",$cartArray);
+
+$sql("INSERT INTO bestelling (name, code, totaal) VALUES ('$code')");
+
+$data1=mysqli_query($conn, $sql);*/
 
 if($data1){
     echo "<script>alert('Bestelling is verzonden')</script>";

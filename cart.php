@@ -118,7 +118,7 @@ $totaal += ($product["price"]*$product["quantity"]);
 </td>
 </tr>
 <tr colspan="5" align="right">
-<td><a href='versturen.php?naam=$result[naam]&telef=$result[telef]&email=$result[email]&datum=$result[datum]&product=$result[name]&product=$result[quantity]&totaal=$result[totaal]' onclick='return checkdelete()'><input type='submit' value='bestellen' id='deletebtn'></a></td>
+<td><a href='versturen.php?naam=$result[naam]&telef=$result[telef]&email=$result[email]&datum=$result[datum]&name=$result[name]&totaal=$result[totaal]&code=$result[code]&tijd=$result[tijd]&id=$result[id]&adres=$result[adres]' onclick='return checkdelete()'><input type='submit' value='bestellen'></a></td>
 </tr>
 </tbody>
 </table>		
