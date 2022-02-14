@@ -48,12 +48,12 @@ if(isset($_POST['submit'])){
    <title>login form</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="style/style.css">
+   <link rel="stylesheet" href="style/login.css">
 
 </head>
 <body>
    
-<div class="form-container">
+<div class="form-containerr">
 
    <form action="" method="post">
       <h3>login now</h3>
@@ -64,10 +64,10 @@ if(isset($_POST['submit'])){
          };
       };
       ?>
-      <input type="email" name="email" required placeholder="enter your email">
-      <input type="password" name="password" required placeholder="enter your password">
+      <input type="email" name="email" required placeholder="vul je email in">
+      <input type="password" name="password" required placeholder="vul je wachtwoord in">
       <input type="submit" name="submit" value="login now" class="form-btn">
-      <p>don't have an account? <a href="registreren.php">register now</a></p>
+      <p>heb je geen account? <a href="registreren.php">registreer nu</a></p>
    </form>
 
 </div>
