@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
    <title>register form</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="style/style.css">
+   <link rel="stylesheet" href="style/login.css">
 
 </head>
 <body>
@@ -64,7 +64,7 @@ if(isset($_POST['submit'])){
       <input type="password" name="password" required placeholder="voer je wachtwoord in">
       <input type="password" name="cpassword" required placeholder="herhaal je wachtwoord">
       
-      <input type="submit" name="submit" value="register now" class="form-btn">
+      <input type="submit" name="submit" value="registreer nu" class="form-btn">
       <p>heb je al een account? <a href="login.php">log hier in</a></p>
    </form>
 

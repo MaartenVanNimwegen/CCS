@@ -57,7 +57,7 @@ if(isset($_POST['submit'])){
 <div class="form-containerr">
 
    <form action="" method="post">
-      <h3>login now</h3>
+      <h3>log nu in</h3>
       <?php
       if(isset($error)){
          foreach($error as $error){
@@ -67,7 +67,7 @@ if(isset($_POST['submit'])){
       ?>
       <input type="email" name="email" required placeholder="vul je email in">
       <input type="password" name="password" required placeholder="vul je wachtwoord in">
-      <input type="submit" name="submit" value="login now" class="form-btn">
+      <input type="submit" name="submit" value="log nu in" class="form-btn">
       <p>heb je geen account? <a href="registreren.php">registreer nu</a></p>
       <a type='button' class='sluitknop' href='#'>&times;</a>
    </form>
