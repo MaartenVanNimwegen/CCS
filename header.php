@@ -15,7 +15,7 @@ include 'connection.php';
     <div class="topnav" id="myTopnav">
         <a href="index.php">Inventaris</a>
 
-        <?php if(isset($_SESSION['admin_name'])){?>
+        <?php if(isset($_SESSION['admin_name']) || isset($_SESSION['user_name'])  ){?>
 	
         <a href="loguit.php">loguit</a>
 

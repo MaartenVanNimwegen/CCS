@@ -108,7 +108,9 @@ mysqli_close($conn);
 
 							     if(isset($_SESSION['admin_name'])){
 
-						        echo" </div>";
+						        echo" <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i> Bestel</button>
+								
+								</div>";
 
 								 } else { 
 								echo" <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i> Bestel</button>
