@@ -24,12 +24,12 @@ if(isset($_POST['submit'])){
       if($row['user_type'] == 'admin'){
 
          $_SESSION['admin_name'] = $row['name'];
-         header('location:index.php');
+         header('location:#');
 
       }elseif($row['user_type'] == 'user'){
 
          $_SESSION['user_name'] = $row['name'];
-         header('location:index.php');
+         header('location:#');
 
       }
 	  

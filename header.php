@@ -1,3 +1,5 @@
+<?php session_start();
+include('connection.php'); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,7 +11,11 @@
 <body>
     <div class="topnav" id="myTopnav">
         <a href="index.php">Inventaris</a>
-        <a href="#Login">Login</a>
+
+        <?php if(isset($_SESSION['admin_name'])):?>
+          <a href="#">Loguit</a>
+	<?php else: ?> <a href="#Login">Login</a> <?php endif; ?>
+    
         <a href="cart.php"><i class="fa fa-shopping-cart"></i></a>
         <a href="javascript:void(0);" class="icon"  onclick="myFunction()">
         <i class="fa fa-bars"></i>

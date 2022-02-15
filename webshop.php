@@ -43,8 +43,6 @@
 
 
 <?php
-session_start();
-include('connection.php');
 $status="";
 if (isset($_POST['code']) && $_POST['code']!=""){
 $code = $_POST['code'];

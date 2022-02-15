@@ -108,7 +108,7 @@ h2{
   .naam{
     color: white;
     position: relative;
-    top: -22.5%;
+    bottom: 22.5px;
     margin: 0% 40% 0% 40%;
     border:solid 1px black;
     border-radius: 10px;
