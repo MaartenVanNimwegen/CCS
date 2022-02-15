@@ -89,6 +89,8 @@ echo"
 <p class='datum'>".$result['datum']."</p>
 <br>
 <p>".$result['name']."</p>
+<br><br><br>
+<p>".'€'.$result['totaal']."</p>
 
 
 ";}} ?>
