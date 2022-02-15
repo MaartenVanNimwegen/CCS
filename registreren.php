@@ -63,6 +63,9 @@ if(isset($_POST['submit'])){
       <input type="email" name="email" required placeholder="voer je email in">
       <input type="password" name="password" required placeholder="voer je wachtwoord in">
       <input type="password" name="cpassword" required placeholder="herhaal je wachtwoord">
+	  <select name="user_type">
+         <option value="user">user</option>
+      </select>
       
       <input type="submit" name="submit" value="registreer nu" class="form-btn">
       <p>heb je al een account? <a href="login.php">log hier in</a></p>
