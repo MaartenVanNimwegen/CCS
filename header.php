@@ -1,5 +1,8 @@
-<?php session_start();
-include('connection.php'); ?>
+<?php 
+session_start(); 
+include 'connection.php';
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,10 +15,16 @@ include('connection.php'); ?>
     <div class="topnav" id="myTopnav">
         <a href="index.php">Inventaris</a>
 
-        <?php if(isset($_SESSION['admin_name'])):?>
-          <a href="#">Loguit</a>
-	<?php else: ?> <a href="#Login">Login</a> <?php endif; ?>
-    
+        <?php if(isset($_SESSION['admin_name'])){?>
+	
+        <a href="loguit.php">loguit</a>
+
+        <?php } else { ?>
+
+          <a href="#Login">Login</a>
+
+          <?php } ?>
+
         <a href="cart.php"><i class="fa fa-shopping-cart"></i></a>
         <a href="javascript:void(0);" class="icon"  onclick="myFunction()">
         <i class="fa fa-bars"></i>
