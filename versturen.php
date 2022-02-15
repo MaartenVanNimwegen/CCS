@@ -33,7 +33,7 @@ FROM products";
 
 //$sql("INSERT INTO bestelling (name, code, totaal) VALUES ('$code')");
 
-$data1=mysqli_query($conn, $sql);
+//$data1=mysqli_query($conn, $sql);
 
 if($data1){
     echo "<script>alert('Bestelling is verzonden')</script>";
