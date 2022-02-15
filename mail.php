@@ -20,7 +20,7 @@ click collect snack";
  
    echo "<script>alert('bestelling is gelukt.')</script>";
    
- }else{
+ } else {
    echo "<script>alert('Sorry, uw bestelling is niet gelukt,')</script>";
  }
  if(mail(implode(',',$receiver), $subject, $body)){

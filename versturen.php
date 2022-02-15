@@ -26,8 +26,7 @@ include("connection.php");
 
 
 /*$sql = "INSERT INTO bestelling (naam,name,code,telef,email,datum,adres,tijd,totaal)
-SELECT name, totaal, code
-FROM products";
+SELECT name, totaal, code FROM products";
 
 $cartArray=implode("','",$cartArray);
 
