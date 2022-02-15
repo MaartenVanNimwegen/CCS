@@ -108,18 +108,20 @@ mysqli_close($conn);
 
 							     if(isset($_SESSION['admin_name'])){
 
-						        echo" <button type='submit' class='cart-btn'><i class='fas fa-pen'></i> Bewerk</button>
+						        echo" </form>
+								 <a href='?snack=" . $row['name'] . "#bewerk'><button  class='cart-btn'><i class='fas fa-pen'></i> Bewerk</button> </a>
+								
 								
 								</div>";
+			
 
 								 } else { 
-								echo" <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i>  Bestel</button>
+								echo" <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i>  Bestel</button> </form>
 
 					        </div>"; } echo "
-									</form>
+									
 				        </div>";
                 }
-
                 mysqli_close($conn);
 				?>
             </div>

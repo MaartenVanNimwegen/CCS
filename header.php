@@ -13,7 +13,7 @@ include 'connection.php';
     </head>
 <body>
     <div class="topnav" id="myTopnav">
-        <a href="index.php">Inventaris</a>
+        <a href="index.php">Voedseloverzicht</a>
 
         <?php if(isset($_SESSION['admin_name']) || isset($_SESSION['user_name'])  ){?>
 	
