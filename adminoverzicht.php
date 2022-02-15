@@ -83,13 +83,15 @@ $res = $conn->query($sql);
 if ($res) {
   foreach ($res as $result) {
 echo"
-<tr>
-<td>".'tijd:'.$result['tijd']."</td>
+<p class='naam'>".$result['naam']."</p>
+<p class='tijd'>".$result['tijd']."</p>
 <br>
-<td>".'$:'.$result['totaal']."</td>
+<p class='datum'>".$result['datum']."</p>
 <br>
-<td>".'producten:'.$result['name']."</td>
-</tr>
+<p>".$result['name']."</p>
+<br><br><br>
+<p>".'€'.$result['totaal']."</p>
+
 
 ";}} ?>
       
