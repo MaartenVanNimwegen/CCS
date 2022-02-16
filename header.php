@@ -17,6 +17,8 @@ include 'connection.php';
 
         <?php if(isset($_SESSION['admin_name']) || isset($_SESSION['user_name'])  ){?>
 	
+        <a href="adminoverzicht.php">Bestellingen</a>
+      
         <a href="loguit.php">loguit</a>
 
         <?php } else { ?>
@@ -45,6 +47,11 @@ function myFunction() {
 <center>
 <div  class="LOGIN" id='Login'>
         <?php include 'login.php' ?>     
+  
+</div>  
+
+<div  class="LOGIN" id='registreren'>
+        <?php include 'registreren.php' ?>   
   
 </div>  
 

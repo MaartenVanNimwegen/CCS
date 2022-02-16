@@ -21,11 +21,11 @@ if(isset($_POST['submit'])){
    }else{
 
       if($pass != $cpass){
-         $error[] = 'password not matched!';
+         $error[] = 'De wachtwoorden komen niet overeen!';
       }else{
          $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
          mysqli_query($conn, $insert);
-         header('location:login.php');
+         header('location:#Login');
       }
    }
 
@@ -68,7 +68,8 @@ if(isset($_POST['submit'])){
       </select>
       
       <input type="submit" name="submit" value="registreer nu" class="form-btn">
-      <p>heb je al een account? <a href="login.php">log hier in</a></p>
+      <p>heb je al een account? <a href="#Login">log hier in</a></p>
+      <a type='button' class='sluitknop' href='#'>&times;</a>
    </form>
 
 </div>

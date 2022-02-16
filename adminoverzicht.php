@@ -48,7 +48,11 @@ if(isset($_POST['loguit'])){
   header('Location: ');
 }
 error_reporting(0);
+if(isset($_SESSION['admin_name'])){
 $query= "SELECT * FROM bestelling";
+} elseif (isset($_SESSION['user_name'])){
+  $naam=$_SESSION['user_name'];
+$query= "SELECT * FROM bestelling WHERE `naam`='$naam'";}
 $data = mysqli_query($conn,$query);
 $total = mysqli_num_rows($data);
 if($total!=0){

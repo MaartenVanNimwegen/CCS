@@ -64,10 +64,13 @@ if(isset($_POST['submit'])){
       <input type="email" name="email" required placeholder="vul je email in">
       <input type="password" name="password" required placeholder="vul je wachtwoord in">
       <input type="submit" name="submit" value="log nu in" class="form-btn">
-      <p>heb je geen account? <a href="registreren.php">registreer nu</a></p>
+      <p>heb je geen account? <a href="#registreren">registreer</a></p>
       <a type='button' class='sluitknop' href='#'>&times;</a>
    </form>
 
 </div>
+
+
+
 </body>
 </html>
