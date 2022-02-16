@@ -117,9 +117,18 @@ $totaal += ($product["price"]*$product["quantity"]);
 <strong>TOTAL: <?php echo "€".$totaal; ?></strong>
 </td>
 </tr>
+
+<?php if(isset($_SESSION['user_name'])  ){?>
+
 <tr colspan="5" align="right">
 <td><a href='versturen.php?naam=$result[naam]&telef=$result[telef]&email=$result[email]&datum=$result[datum]&name=$result[name]&totaal=$result[totaal]&code=$result[code]&tijd=$result[tijd]&id=$result[id]&adres=$result[adres]' onclick='return checkdelete()'><input type='submit' value='bestellen'></a></td>
 </tr>
+<?php } else {  ?>
+	<tr colspan="5" align="right">
+<td><a href='index.php#Login' onclick='return checkdelete()'><input type='submit' value='login'></a></td>
+</tr>
+<?php }?>
+
 </tbody>
 </table>		
   <?php

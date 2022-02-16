@@ -16,7 +16,7 @@ include 'connection.php';
         <a href="index.php">Voedseloverzicht</a>
 
         <?php if(isset($_SESSION['admin_name']) || isset($_SESSION['user_name'])  ){?>
-	
+        
         <a href="adminoverzicht.php">Bestellingen</a>
       
         <a href="loguit.php">loguit</a>
