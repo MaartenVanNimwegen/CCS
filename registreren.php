@@ -23,42 +23,30 @@ if(isset($_POST['submit'])){
       if($pass != $cpass){
          $error[] = 'De wachtwoorden komen niet overeen!';
       }else{
-         $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
-         mysqli_query($conn, $insert);
-         
-      if($insert){
+ 
+         $sql = "INSERT INTO user_form(name, email, password, user_type, bevestig) VALUES('$name', '$email', '$pass','$user_type', 'false')";
+         $insert = $conn->query($sql);
+
+         if ($insert)
+
          
          //mail versturen met de mail van de gebruiker en die het invuld
          $receiver = array($email);
          $subject="Account";
-         $body = "Beste $name, om uw account aan te maken moet u eerst bevestigen\r\n 
-         Naam= $name \r\nemail= $email
-         
+         $body = "Beste $name, om uw account aan te maken moet u eerst bevestigen\r\n Bevestig: http://localhost/CCS/bevestig.php?id=$conn->insert_id 
+        
+         \r\n
          Met vriendelijke groet,
          click collect snack";
          //hier kijk die of de mail  verstuurt kan worden zo ja  zegt die de eerste optie zo niet zegt die de tweede optie 
           
-            echo "<script>alert('Kijk uw mail voor bevestiging')</script>";
             
-          } else {
-            echo "<script>alert('Sorry, uw account kan niet worden aangemaakt,')</script>";
           }
           if(mail(implode(',',$receiver), $subject, $body)){
 
-            header('location:#Login');
-         }
-         
-         //wordt database connection gemaakt en als het niet lukt sluit het af
-         $conn = new mysqli('localhost','bestelling','deb85590_p21t4','UtvCWEGA');
-               if($conn->connect_error){
-                   die('Connection Failed : '.$conn->connect_error);
-               }else{
-                   $stmt = $conn->prepare("insert into bestelling(naam,email,ophaaltijd) values(?,?,?)");
-                   $stmt->bind_param("sss",$naam,$email,$ophaaltijd);
-                   $stmt->execute();
-                   $stmt->close();
-                   $conn->close();
-               }}}}
+            echo "<script>alert('Kijk uw mail voor bevestiging')</script>";
+            header('Refresh: 0.1; URL = index.php#Login');
+         }}}
 
 
 ?>
