@@ -8,7 +8,7 @@ if(isset($_POST['submit'])){
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $pass = md5($_POST['password']);
    $cpass = md5($_POST['cpassword']);
-   $user_type = $_POST['user_type'];
+   $user_type = 'user';
 
    $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
 
@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
           if(mail(implode(',',$receiver), $subject, $body)){
 
             echo "<script>alert('Kijk uw mail voor bevestiging')</script>";
-            header('Refresh: 0.1; URL = index.php#Login');
+            
          }}}
 
 
@@ -80,9 +80,6 @@ if(isset($_POST['submit'])){
       <input type="email" name="email" required placeholder="voer je email in">
       <input type="password" name="password" required placeholder="voer je wachtwoord in">
       <input type="password" name="cpassword" required placeholder="herhaal je wachtwoord">
-	  <select name="user_type">
-         <option value="user">user</option>
-      </select>
       
       <input type="submit" name="submit" value="registreer nu" class="form-btn">
       <p>heb je al een account? <a href="#Login">log hier in</a></p>
