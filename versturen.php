@@ -1,12 +1,29 @@
 <?php
+ session_start();
+include("connection.php");
 
-$naam= $_GET['naam'];
-$datum = $_GET['datum'];
-$email= $_GET['email'];
-$telef =  $_GET['telef'];
-$totaal = $_GET['totaal'];
+$user=$_SESSION['user_name'];
+  
+$sql1= "SELECT `name`, `email`FROM `user_form` WHERE `name`='$user'"; //als er 3 met dezelfde username zijn word het 3 keer geinsert. daarom id 
+$result = $conn->query($sql1);
 
-$receiver = array($email, 'css.online.shop@gmail.com');
+if ($result) {
+  foreach ($result as $row) {
+
+    foreach ($_SESSION["shopping_cart"] as $product){
+  
+      $totaal = $product["price"]*$product["quantity"];
+      $name = $product["name"];
+      $code= $product["code"];
+    }
+
+
+$naam= $row['name'];;
+$datum= date("d/m/Y");
+$email= $row['email'];
+$tijd= date('H:i');
+
+$receiver = array($email);
 $subject="Uw bestelling is verzonden";
 $body = "Beste $naam, \r\nUw bestelling op $datum voor $totaal is klaar om op te halen
 U kunt het ophalen in 43 minuten
@@ -16,31 +33,26 @@ Met vriendelijke groet,
 Click Collect Snack";
 
 if(mail(implode(',',$receiver), $subject, $body)){
-  ?>
-  <META HTTP-EQUIV="Refresh" CONTENT="0; URL=cart.php">
-  <?php
-}
 
-
-include("connection.php");
-
-
-$sql = "INSERT INTO bestelling (naam,name,code,telef,email,datum,adres,tijd,totaal)
-SELECT name, totaal, code
-FROM products";
-
-//$cartArray=implode("','",$cartArray);
-
-//$sql("INSERT INTO bestelling (name, code, totaal) VALUES ('$code')");
-
-//$data1=mysqli_query($conn, $sql);
-
-if($data1){
+  
+  $sql = "INSERT INTO `bestelling` (`naam`, `datum`, `tijd`, `totaal`, `code`, `name`) VALUES ('$naam', '$datum', '$tijd','$totaal', '$code', '$name')";
+  $insert = $conn->query($sql);
+  
+  
+  
+  
+  if($insert){
+      
+    unset($_SESSION["shopping_cart"]);
+    
     echo "<script>alert('Bestelling is verzonden')</script>";
-    ?>
-    <META HTTP-EQUIV="Refresh" CONTENT="0; URL=cart.php">
-    <?php
-}else{
-    echo "<script>alert('Sorry, bestelling versturen is mislukt, Probeer het later opnieuw')</script>";
-}
-?>
+      ?>
+      <META HTTP-EQUIV="Refresh" CONTENT="0; URL=adminoverzicht.php">
+      <?php
+  }else{
+      echo "<script>alert('Sorry, bestelling versturen is mislukt, Probeer het later opnieuw')</script>";
+      ?>
+      <META HTTP-EQUIV="Refresh" CONTENT="0; URL=cart.php">
+      <?php
+  }}}}
+  ?>

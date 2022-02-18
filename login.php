@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
 
       if($row['user_type'] == 'admin'){
 
-         $_SESSION['admin_name'] = $row['name'];
+         $_SESSION['admin_name'] = $row['name']; //moet eigenlijk id zijn
          header('location:#');
 
       }elseif($row['user_type'] == 'user'){

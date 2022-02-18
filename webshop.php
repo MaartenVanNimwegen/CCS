@@ -37,7 +37,6 @@
 
 	<?php if(isset($_SESSION['admin_name'])):?>
 		<a class="toevoegenknop" href="#Artikel_toevoegen"><i class='fa fa-plus'></i></a>
-		<a href="javascript:void(0);" class="icon"  onclick="myFunction()">
 	<?php endif; ?>
 
 
