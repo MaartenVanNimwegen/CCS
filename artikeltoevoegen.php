@@ -17,7 +17,7 @@
                 <input class="input" type="name" name="code" placeholder="Code"><br>
                 <input class="input" type="name" name="price" placeholder="Prijs"><br>
                 <input class="bestand" type="file" name="fileToUpload" id="fileToUpload"><br>
-                <input class="upload" type="submit" value="Upload foto" name="submit">
+                <input class="upload" type="submit" value="Upload item" name="submit">
                 <a type='button' class='sluitknop' href='#'>&times;</a>
             </form>
         </div>
