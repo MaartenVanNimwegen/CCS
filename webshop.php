@@ -33,7 +33,8 @@
 
 </head>
 <body>
-<?php include 'artikeltoevoegen.php'; ?>
+<?php include 'artikeltoevoegen.php';
+ include 'artikelbewerken.php';       ?> 
 
 	<?php if(isset($_SESSION['admin_name'])):?>
 		<a class="toevoegenknop" href="#Artikel_toevoegen"><i class='fa fa-plus'></i></a>
@@ -109,11 +110,26 @@ mysqli_close($conn);
 
 							     if(isset($_SESSION['admin_name'])){
 
-						        echo" </form>
-								 <a href='?snack=" . $row['name'] . "#bewerk'><button  class='cart-btn'><i class='fas fa-pen'></i> Bewerk</button> </a>
+
+                           if(isset($_SESSION['admin_name'])):
+
+                            
+                            
+                            
+                            
+
+
+							
+							echo"
+	                    	</form>
+								 <a href='?id=" . $row['id'] . "#bewerk'><button  class='cart-btn'><i class='fas fa-pen'></i> Bewerk</button> </a>
 								
 								
 								</div>";
+                            endif; 
+		
+
+	
 			
 
 								 } else { 
