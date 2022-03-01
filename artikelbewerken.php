@@ -23,8 +23,8 @@ if(isset($_GET['id'])){
                             <input type='text' name='name' class='input' placeholder='".$result['name']."'><br>
                             <input class='input' type='name' name='price' placeholder='".$result['price']."'><br>
                             <input class='bestand' type='file' name='fileToUpload' id='fileToUpload'><br>
-                            
-                            <input class='upload' type='submit' value='Bewerk' name='submit'>
+                            <img src='".$result['image']."' alt=''>
+                            <input class='upload cart-btn' type='submit' value='Bewerk' name='submit'>
                             <a type='button' class='sluitknop' href='#'>&times;</a>
                         </form>
                     </div>

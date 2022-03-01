@@ -9,7 +9,7 @@ html {
 }
 .cart-btn {
   border: none;
-  background-color: rgb(255, 95, 67);
+  background-color: #f28123;
   padding: 10px;
   border-radius: 5px;
   transition: 0.3s ease;
