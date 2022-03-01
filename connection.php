@@ -1,8 +1,8 @@
 <?php
 $servername="localhost";
-$username="root";
-$password="";
-$db="onlineshop";
+$username="deb85590_p31t2";
+$password="MiQBz8k3";
+$db="deb85590_p31t2";
 
 $conn= new mysqli($servername, $username, $password, $db);
 if(!$conn){
