@@ -19,14 +19,17 @@ if ($result) {
 
 
 $naam= $row['name'];;
-$datum= date("d/m/Y");
+$datum= date("d-m-Y");
 $email= $row['email'];
-$tijd= date('H:i');
+$tijd = date('H:i', strtotime('+43 minutes'));
 
 $receiver = array($email);
-$subject="Uw bestelling is verzonden";
-$body = "Beste $naam, \r\nUw bestelling op $datum voor €$totaal is klaar om op te halen.
-U kunt het ophalen in 43 minuten
+$subject="Uw bestelling word bereid.";
+$body = "Beste $naam,
+
+Uw bestelling geplaatst op $datum van €$totaal is ontvangen.
+U kunt het ophalen om $tijd.
+
 eet smakelijk!
 
 Met vriendelijke groet,

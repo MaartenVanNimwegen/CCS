@@ -21,9 +21,9 @@ if(isset($_GET['id'])){
                     <div class='form'>
                         <form action='KOEL.php?id=$id' method='post' enctype='multipart/form-data'>
                             <input type='text' name='name' class='input' placeholder='".$result['name']."'><br>
-                        
                             <input class='input' type='name' name='price' placeholder='".$result['price']."'><br>
                             <input class='bestand' type='file' name='fileToUpload' id='fileToUpload'><br>
+                            
                             <input class='upload' type='submit' value='Bewerk' name='submit'>
                             <a type='button' class='sluitknop' href='#'>&times;</a>
                         </form>
