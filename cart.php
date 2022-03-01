@@ -128,7 +128,7 @@ $totaal += ($product["price"]*$product["quantity"]);
 </tr>
 <?php } else {  ?>
 	<tr colspan="5" align="right">
-<td><a href='index.php#Login' onclick='return checkdelete()'><input type='submit' value='login'></a></td>
+<td><p>om te bestellen moet je eerst <a href='index.php#Login'>inloggen</a></p></td>
 </tr>
 <?php }?>
 
