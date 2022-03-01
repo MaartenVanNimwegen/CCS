@@ -74,3 +74,18 @@ html {
   border-radius: 10px;
   color: #ff5f43;
 }
+
+.delete{
+  color: black;
+  border: none;
+  background-color: rgb(255, 95, 67);
+  padding: 10px ;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+
+
+.delete:hover {
+box-shadow: 0px 0px 12px 0px orange;
+}

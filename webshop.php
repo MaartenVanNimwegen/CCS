@@ -122,7 +122,7 @@ mysqli_close($conn);
 							
 							echo"
 	                    	</form>
-								 <a href='?id=" . $row['id'] . "#bewerk'><button  class='cart-btn'><i class='fas fa-pen'></i> Bewerk</button> </a>
+								 <a href='?id=" . $row['id'] . "#bewerk'><button  class='cart-btn'><i class='fas fa-pen'></i></button> <a class='delete' href='artikelverwijderen.php?id=$id'><i class='fa fa-trash'></i></a> </a>
 								
 								
 								</div>";
@@ -133,7 +133,7 @@ mysqli_close($conn);
 			
 
 								 } else { 
-								echo" <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i>  Bestel</button> </form>
+								echo" <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i>  Bestel </button> </form>
 
 					        </div>"; } echo "
 									

@@ -27,7 +27,6 @@ if(isset($_GET['id'])){
                             <input class='upload' type='submit' value='Bewerk' name='submit'>
                             <a type='button' class='sluitknop' href='#'>&times;</a>
                         </form>
-                        <a href='artikelverwijderen.php?id=$id'><i class='fa fa-trash'></i></a>
                     </div>
                 </div>
             </body>
