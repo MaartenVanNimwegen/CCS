@@ -1,6 +1,7 @@
 <?php
 
 include "connection.php";
+$id=$_GET['id'];
 $naam = $_POST['name'];
 $prijs = $_POST['price'];
 $target_dir = "product-images/";
