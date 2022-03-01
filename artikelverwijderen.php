@@ -5,6 +5,6 @@
     $res = $conn->query($sql);
 
     echo "<script>alert('Het artikel is verwijderd.')</script>";
-    header('Location:index.php');
+    header('Refresh: 0.01; URL = index.php');
 
 ?>

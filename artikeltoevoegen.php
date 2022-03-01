@@ -13,10 +13,10 @@
     <div class="container form-popup" id='Artikel_toevoegen'>
         <div class="form">
             <form action="upload.php" method="post" enctype="multipart/form-data">
-                <input type="text" name="name" class="input" placeholder="Naam"><br>
-                <input class="input" type="name" name="code" placeholder="Code"><br>
-                <input class="input" type="name" name="price" placeholder="Prijs"><br>
-                <input class="bestand" type="file" name="fileToUpload" id="fileToUpload"><br>
+                <input type="text" name="name" class="input" placeholder="Naam" required><br>
+                <input class="input" type="name" name="code" placeholder="Code" required><br>
+                <input class="input" type="name" name="price" placeholder="Prijs" required><br>
+                <input class="bestand" type="file" name="fileToUpload" id="fileToUpload" required><br>
                 <input class="upload" type="submit" value="Upload item" name="submit">
                 <a type='button' class='sluitknop' href='#'>&times;</a>
             </form>
