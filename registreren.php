@@ -2,7 +2,7 @@
 
 @include 'connection.php';
 
-if(isset($_POST['submit'])){
+if(isset($_POST['registreer'])){
 
    $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -45,8 +45,7 @@ if(isset($_POST['submit'])){
           if(mail(implode(',',$receiver), $subject, $body)){
 
             echo "<script>alert('Kijk uw mail voor bevestiging')</script>";
-            header('Refresh: 0.01; URL = index.php#');
-            
+                     
          }}}
 
 
@@ -82,7 +81,7 @@ if(isset($_POST['submit'])){
       <input type="password" name="password" required placeholder="voer je wachtwoord in">
       <input type="password" name="cpassword" required placeholder="herhaal je wachtwoord">
       
-      <input type="submit" name="submit" value="registreer nu" class="form-btn">
+      <input type="submit" name="registreer" value="registreer nu" class="form-btn">
       <p>heb je al een account? <a href="#Login">log hier in</a></p>
       <a type='button' class='sluitknop' href='#'>&times;</a>
    </form>
