@@ -1,5 +1,6 @@
 <?php
 session_start();
+// Verwijderen
 $status="";
 if (isset($_POST['action']) && $_POST['action']=="remove"){
 if(!empty($_SESSION["shopping_cart"])) {
@@ -14,12 +15,12 @@ if(!empty($_SESSION["shopping_cart"])) {
 			}		
 		}
 }
-
+// Hoeveelheid veranderen
 if (isset($_POST['action']) && $_POST['action']=="change"){
   foreach($_SESSION["shopping_cart"] as &$value){
     if($value['code'] === $_POST["code"]){
         $value['quantity'] = $_POST["quantity"];
-        break; // Stop the loop after we've found the product
+        break; // Stop de loop
     }
 }
   	
@@ -36,6 +37,7 @@ if (isset($_POST['action']) && $_POST['action']=="change"){
 <h2>Winkelwagen</h2>   
 
 <?php
+// De winkelwagen icon en teller van de producten
 if(!empty($_SESSION["shopping_cart"])) {
 $cart_count = count(array_keys($_SESSION["shopping_cart"]));
 ?>
@@ -57,12 +59,13 @@ if(isset($_SESSION["shopping_cart"])){
 <tbody>
 <tr>
 <td></td>
-<td>ITEM NAME</td>
-<td>QUANTITY</td>
-<td>UNIT PRICE</td>
-<td>ITEMS TOTAL</td>
+<td>Product</td>
+<td>Hoeveelheid</td>
+<td>Prijs</td>
+<td>Totaal</td>
 </tr>	
-<?php		
+<?php
+// De product 		
 foreach ($_SESSION["shopping_cart"] as $product){
 ?>
 <tr>
@@ -71,7 +74,7 @@ foreach ($_SESSION["shopping_cart"] as $product){
 <form method='post' action=''>
 <input type='hidden' name='code' value="<?php echo $product["code"]; ?>" />
 <input type='hidden' name='action' value="remove" />
-<button type='submit' class='remove'>Remove Item</button>
+<button type='submit' class='remove'>Verwijderen</button>
 </form>
 </td>
 <td>
@@ -133,7 +136,7 @@ $totaal += ($product["price"]*$product["quantity"]);
 </table>		
   <?php
 }else{
-	echo "<h3>Your cart is empty!</h3>";
+	echo "<h3>Uw Winkelwagen Is Leeg!</h3>";
 	}
 ?>
 </div>
