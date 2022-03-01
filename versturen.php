@@ -25,7 +25,7 @@ $tijd= date('H:i');
 
 $receiver = array($email);
 $subject="Uw bestelling is verzonden";
-$body = "Beste $naam, \r\nUw bestelling op $datum voor $totaal is klaar om op te halen
+$body = "Beste $naam, \r\nUw bestelling op $datum voor €$totaal is klaar om op te halen.
 U kunt het ophalen in 43 minuten
 eet smakelijk!
 

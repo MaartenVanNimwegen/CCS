@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
          //mail versturen met de mail van de gebruiker en die het invuld
          $receiver = array($email);
          $subject="Account";
-         $body = "Beste $name, om uw account aan te maken moet u eerst bevestigen\r\n Bevestig: http://localhost/CCS/bevestig.php?id=$conn->insert_id 
+         $body = "Beste $name, om uw account aan te maken moet u eerst bevestigen\r\n Bevestig: https://p31t2.lesonline.nu/bevestig.php?id=$conn->insert_id 
         
          \r\n
          Met vriendelijke groet,
