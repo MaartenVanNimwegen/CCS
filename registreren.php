@@ -45,6 +45,7 @@ if(isset($_POST['submit'])){
           if(mail(implode(',',$receiver), $subject, $body)){
 
             echo "<script>alert('Kijk uw mail voor bevestiging')</script>";
+            header('Refresh: 0.01; URL = index.php#');
             
          }}}
 
