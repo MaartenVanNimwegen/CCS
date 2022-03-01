@@ -8,7 +8,7 @@ if(!empty($_SESSION["shopping_cart"])) {
 		if($_POST["code"] == $key){
 		unset($_SESSION["shopping_cart"][$key]);
 		$status = "<div class='box' style='color:red;'>
-		Product is removed from your cart!</div>";
+		Product is verwijdert!</div>";
 		}
 		if(empty($_SESSION["shopping_cart"]))
 		unset($_SESSION["shopping_cart"]);
@@ -117,7 +117,7 @@ $totaal += ($product["price"]*$product["quantity"]);
 ?>
 <tr>
 <td colspan="5" align="right">
-<strong>TOTAL: <?php echo "€".$totaal; ?></strong>
+<strong>TOTAAL: <?php echo "€".$totaal; ?></strong>
 </td>
 </tr>
 
@@ -128,7 +128,7 @@ $totaal += ($product["price"]*$product["quantity"]);
 </tr>
 <?php } else {  ?>
 	<tr colspan="5" align="right">
-<td><p>om te bestellen moet je eerst <a href='index.php#Login'>inloggen</a></p></td>
+<td><p>Om Te Bestellen Moet Je Eerst <a href='index.php#Login'>Inloggen</a></p></td>
 </tr>
 <?php }?>
 
