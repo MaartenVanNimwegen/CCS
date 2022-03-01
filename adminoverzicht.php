@@ -88,7 +88,7 @@ if ($res) {
   foreach ($res as $result) {
 echo"
 <p class='naam'>".$result['naam']."</p>
-<p class='tijd'>".$result['tijd']."</p>
+<p class='tijd'>afhaaltijdstip: ".$result['tijd']."</p>
 <br>
 <p class='datum'>".$result['datum']."</p>
 <br>
