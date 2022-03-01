@@ -19,7 +19,7 @@ if ($result) {
 
 
 $naam= $row['name'];;
-$datum= date("d/m/Y");
+$datum= date("d-m-Y");
 $email= $row['email'];
 $tijd= date('H:i');
 
