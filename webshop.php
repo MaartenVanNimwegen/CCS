@@ -122,7 +122,7 @@ mysqli_close($conn);
 							
 							echo"
 	                    	</form>
-								 <a href='?id=" . $row['id'] . "#bewerk'><button  class='cart-btn'><i class='fas fa-pen'></i></button> <a class='delete' href='artikelverwijderen.php?id=$id'><i class='fa fa-trash'></i></a> </a>
+								 <a href='?id=" . $row['id'] . "#bewerk'><button  class='cart-btn'><i class='fas fa-pen'></i></button> <a class='delete' href='artikelverwijderen.php?id=".$row['id']."'><i class='fa fa-trash'></i></a> </a>
 								
 								
 								</div>";
