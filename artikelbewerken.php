@@ -25,7 +25,7 @@ if(isset($_GET['id'])){
                             <input class='input' type='name' name='price' placeholder='Prijs'><br>
                             <input class='bestand' type='file' name='fileToUpload' id='fileToUpload'><br>
                             <input class='upload' type='submit' value='Bewerk' name='submit'>
-                            <a type='button' class='sluitknop' href='/CCS/#'>&times;</a>
+                            <a type='button' class='sluitknop' href='#'>&times;</a>
                         </form>
                     </div>
                 </div>
