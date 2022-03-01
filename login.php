@@ -1,6 +1,8 @@
 <?php
 
 
+error_reporting(0);
+
 if(isset($_POST['submit'])){
 
    $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -30,7 +32,8 @@ if(isset($_POST['submit'])){
       }
 	  
    }else{
-      $error[] = 'verkeerd email or password!';
+      echo "<script>alert('De combinatie van de email en wachtwoord zijn incorrect')</script>";
+      header('Refresh: 0.001; URL = index.php#Login');
    }
 
 };
@@ -44,7 +47,7 @@ if(isset($_POST['submit'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>login form</title>
 
-   <!-- custom css file link  -->
+   
    <link rel="stylesheet" href="style/login.css">
 
 </head>
