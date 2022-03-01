@@ -32,10 +32,13 @@ if(isset($_POST['registreer'])){
          
          //mail versturen met de mail van de gebruiker en die het invuld
          $receiver = array($email);
-         $subject="Account";
-         $body = "Beste $name, om uw account aan te maken moet u eerst bevestigen\r\n Bevestig: https://p31t2.lesonline.nu/bevestig.php?id=$conn->insert_id 
+         $subject="Bevestig registratie";
+         $body = "Beste $name,
+         
+         Om uw account aan te maken moet u eerst bevestigen.
+         Bevestig: https://p31t2.lesonline.nu/bevestig.php?id=$conn->insert_id 
         
-         \r\n
+         
          Met vriendelijke groet,
          click collect snack";
          //hier kijk die of de mail  verstuurt kan worden zo ja  zegt die de eerste optie zo niet zegt die de tweede optie 

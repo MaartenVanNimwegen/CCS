@@ -1,18 +1,12 @@
 <?php
 
-session_start();
-include 'connection.php';
 
-foreach ($_SESSION["shopping_cart"] as $product){
+$tijd = date('H:i', strtotime('+43 minutes'));
 
-   $ding =  $product["name"] . '<br>';
+echo $newDate;
 
 
-echo $ding;
 
-}
-
-print_r ($_SESSION['user_name'])
 
 
  ?>

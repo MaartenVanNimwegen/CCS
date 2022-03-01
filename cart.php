@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ include 'header.php';
 session_start();
 // Verwijderen
 $status="";
