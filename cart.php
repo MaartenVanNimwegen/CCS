@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ include 'header.php';
 session_start();
 // Verwijderen
 $status="";
@@ -128,7 +130,7 @@ $totaal += ($product["price"]*$product["quantity"]);
 </tr>
 <?php } else {  ?>
 	<tr colspan="5" align="right">
-<td><p>om te bestellen moet je eerst <a href='index.php#Login'>inloggen</a></p></td>
+<td><p>om te bestellen moet je eerst <a href='#Login'>inloggen</a></p></td>
 </tr>
 <?php }?>
 
