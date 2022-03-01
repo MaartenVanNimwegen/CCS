@@ -100,7 +100,7 @@ echo"
 ";}} ?>
       
 
-    <a type='button' class='sluitknop' href='/CCS/adminoverzicht.php#'>&times;</a>
+    <a type='button' class='sluitknop' href='/adminoverzicht.php#'>&times;</a>
 
 </div>
   
