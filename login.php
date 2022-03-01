@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
 	  
    }else{
       echo "<script>alert('De combinatie van de email en wachtwoord zijn incorrect')</script>";
-      header('Refresh: 0.001; URL = index.php#Login');
+      header('Refresh: 0.01; URL = index.php#Login');
    }
 
 };
