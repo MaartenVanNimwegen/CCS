@@ -96,7 +96,7 @@ mysqli_close($conn);
                 	include 'connection.php';
                 	$result = mysqli_query($conn,"SELECT * FROM `products`");
 	                while($row = mysqli_fetch_assoc($result)){
-			            echo "<div class='col-lg-4 col-md-6 text-center'>
+			            echo"<div class='col-lg-4 col-md-6 text-center'>
                         		<div class='single-product-item min-height'>
 									<form method='post' action=''>
 										<input type='hidden' name='code' value=".$row['code']." />
@@ -107,13 +107,17 @@ mysqli_close($conn);
 						    			<p class='product-price'><span>Per stuk</span>€" . $row['price'] . "</p>
 						";
 			     		if(isset($_SESSION['admin_name'])){
-							echo"</form>
+							echo"
+								</form>
 									<a href='?id=" . $row['id'] . "#bewerk'>
 									<button class='cart-btn'><i class='fas fa-pen'></i></button> <a class='delete' href='artikelverwijderen.php?id=".$row['id']."'><i class='fa fa-trash'></i></a></a>
-							</div>";
+									</div>
+							";
 						}
 						else { 
-							echo" <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i>  Bestel </button> </form></div>"; 
+							echo" <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i>  Bestel </button>
+							</form>
+							</div>"; 
 						} 
 						echo "</div>";
                 	}
