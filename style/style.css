@@ -75,21 +75,22 @@ html {
   color: #ff5f43;
 }
 
-.delete{
+.delete {
   color: black;
   border: none;
   background-color: #f28123;
-  padding-top: 12.4px ;
-  padding-bottom:12.6px;
-  padding-left:11px;
-  padding-right:11px;
+  padding-top: 12.4px;
+  padding-bottom: 12.6px;
+  padding-left: 11px;
+  padding-right: 11px;
   border-radius: 5px;
   transition: 0.3s ease;
 }
 
-
-
 .delete:hover {
-box-shadow: 0px 0px 12px 0px orange;
-color: black;
+  box-shadow: 0px 0px 12px 0px orange;
+  color: black;
+}
+.min-height {
+  height: 550px;
 }
