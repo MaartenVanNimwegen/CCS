@@ -132,7 +132,7 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
 						<?php } else {  ?>
 							<tr colspan="5" align="right">
 								<td>
-									<p>Om Te Bestellen Moet Je Eerst <a href='index.php#Login'>Inloggen</a></p>
+									<p>Om Te Bestellen Moet Je Eerst <a href='#Login'>Inloggen</a></p>
 								</td>
 							</tr>
 						<?php } ?>

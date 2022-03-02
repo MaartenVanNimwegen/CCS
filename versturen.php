@@ -24,7 +24,7 @@ $email= $row['email'];
 $tijd = date('H:i', strtotime('+43 minutes'));
 
 $receiver = array($email);
-$subject="Uw bestelling word bereid.";
+$subject="Uw bestelling wordt bereid.";
 $body = "Beste $naam,
 
 Uw bestelling geplaatst op $datum van €$totaal is ontvangen.

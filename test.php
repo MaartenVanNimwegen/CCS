@@ -1,9 +1,8 @@
 <?php
 
+session_start();
 
-$tijd = date('H:i', strtotime('+43 minutes'));
-
-echo $newDate;
+print_r ($_SESSION["shopping_cart"]);
 
 
 
