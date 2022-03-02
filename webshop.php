@@ -96,13 +96,14 @@ mysqli_close($conn);
                 	include 'connection.php';
                 	$result = mysqli_query($conn,"SELECT * FROM `products`");
 	                while($row = mysqli_fetch_assoc($result)){
-			            echo"<div class='col-lg-4 col-md-6 text-center'>
+			            echo"<div class='col-lg-4 col-md-6 text-center flex-container'>
                         		<div class='single-product-item min-height'>
+									<div class='product-image flex-item'>
+										<img src='" . $row['image'] . "' alt=''></a>
+									</div>
+									<div class='product-image flex-item'>
 									<form method='post' action=''>
 										<input type='hidden' name='code' value=".$row['code']." />
-										<div class='product-image'>
-											<img src='" . $row['image'] . "' alt=''></a>
-						    			</div>
 						    			<h3>" . $row['name'] . "</h3>
 						    			<p class='product-price'><span>Per stuk</span>€" . $row['price'] . "</p>
 						";
@@ -111,13 +112,13 @@ mysqli_close($conn);
 								</form>
 									<a href='?id=" . $row['id'] . "#bewerk'>
 									<button class='cart-btn'><i class='fas fa-pen'></i></button> <a class='delete' href='artikelverwijderen.php?id=".$row['id']."'><i class='fa fa-trash'></i></a></a>
-									</div>
+									</div></div>
 							";
 						}
 						else { 
 							echo" <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i>  Bestel </button>
 							</form>
-							</div>"; 
+							</div></div>"; 
 						} 
 						echo "</div>";
                 	}
