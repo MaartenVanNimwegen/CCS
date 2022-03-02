@@ -33,6 +33,7 @@
 
 </head>
 <body>
+	<h1 class='kevin'>Voedseloverzicht</h1>
 <?php include 'artikeltoevoegen.php';
  include 'artikelbewerken.php';       ?> 
 

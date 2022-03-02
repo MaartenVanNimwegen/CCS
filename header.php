@@ -14,6 +14,7 @@ include 'connection.php';
 </head>
 
 <body>
+<<<<<<< HEAD
   <div class="topnav" id="myTopnav">
     <a href="index.php">Voedseloverzicht</a>
 
@@ -22,6 +23,10 @@ include 'connection.php';
       <a href="adminoverzicht.php">Bestellingen</a>
 
       <a href="loguit.php">loguit</a>
+=======
+    <div class="topnav" id="myTopnav">
+        <a href="index.php">Menukaart</a>
+>>>>>>> c4cee79ca53b1003077d9c50a6336f0423d26b87
 
     <?php } else { ?>
 
