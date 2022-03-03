@@ -15,20 +15,20 @@ $result = $conn->query($sql);
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   <link rel="stylesheet" href="style/adminoverzicht.css">
-  <title>Bestellingen</title>
+  <title>Adminoverzicht</title>
 </head>
 
 
   
 </style>
+<header>
 <form method='POST' action=""> 
 </form> 
     
 
 
 <body>
-<h1 class="kevin">Bestellingen</h1>
-<br><br><br>
+<br><br><br><br>
 
         <tr>
         <div class='table-wrapper'>
