@@ -39,20 +39,6 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
 
 		<h2>Winkelwagen</h2>
 
-		<?php
-		// De winkelwagen icon en teller van de producten
-		if (!empty($_SESSION["shopping_cart"])) {
-			$cart_count = count(array_keys($_SESSION["shopping_cart"]));
-		?>
-			<div class="cart_div">
-				<a href="cart.php">
-					<img src="cart-icon.png" /> Cart
-					<span><?php echo $cart_count; ?></span></a>
-			</div>
-		<?php
-		}
-		?>
-
 		<div class="cart">
 			<?php
 			if (isset($_SESSION["shopping_cart"])) {
