@@ -127,10 +127,17 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
 						<?php if (isset($_SESSION['user_name'])) { ?>
 
 							<tr colspan="5" align="right">
-								<td><a href='versturen.php' onclick='return checkdelete()'><input type='submit' value='bestellen'></a></td>
-							</tr>
+							<td>
+						    <form method='post' action='versturen.php'>
+						    <input type="hidden" name='name' value='<?php foreach ($_SESSION["shopping_cart"] as $product){ echo $product['name'] . 'x' . $product['quantity'] . '<br>' ;}?>'>
+							<input type="hidden" name='totaal' value='<?php foreach ($_SESSION["shopping_cart"] as $product){ echo $product["price"]*$product["quantity"] ;}?>'>
+							<input type="hidden" name='code' value='<?php foreach ($_SESSION["shopping_cart"] as $product){ echo $product['code'] ;}?>'>
+							<input type='submit' value='bestellen'>
+						    </form>
+						</td>							
+						</tr>
 						<?php } else {  ?>
-							<tr colspan="5" align="right">
+							<tr colspan="5" align="right"> 
 								<td>
 									<p>Om Te Bestellen Moet Je Eerst <a href='#Login'>Inloggen</a></p>
 								</td>
