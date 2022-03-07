@@ -115,7 +115,7 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
 							<tr colspan="5" align="right">
 							<td>
 						    <form method='post' action='versturen.php'>
-						    <input type="hidden" name='name' value='<?php foreach ($_SESSION["shopping_cart"] as $product){ echo $product['name'] . 'x' . $product['quantity'] . '<br>' ;}?>'>
+						    <input type="hidden" name='name' value='<?php foreach ($_SESSION["shopping_cart"] as $product){ echo $product['name'] . '<br>' ;}?>'>
 							<input type="hidden" name='totaal' value='<?php foreach ($_SESSION["shopping_cart"] as $product){ echo $product["price"]*$product["quantity"] ;}?>'>
 							<input type="hidden" name='code' value='<?php foreach ($_SESSION["shopping_cart"] as $product){ echo $product['code'] ;}?>'>
 							<input type='submit' value='bestellen'>
