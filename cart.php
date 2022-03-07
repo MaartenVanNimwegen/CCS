@@ -10,7 +10,7 @@ if (isset($_POST['action']) && $_POST['action'] == "remove") {
 			if ($_POST["code"] == $key) {
 				unset($_SESSION["shopping_cart"][$key]);
 				$status = "<div class='box' style='color:red;'>
-		Product is verwijdert!</div>";
+		Product is verwijderd!</div>";
 			}
 			if (empty($_SESSION["shopping_cart"]))
 				unset($_SESSION["shopping_cart"]);

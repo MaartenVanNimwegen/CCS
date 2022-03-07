@@ -18,7 +18,13 @@
 }
 
 .containerr .content{
-   text-align: center;
+      text-align: center;
+      position: relative;
+      background-color: var(--container-color);
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+      border-radius: 1rem 1rem 0 0;
+      transition: all .3s;
 }
 
 .containerr .content h3{
@@ -170,3 +176,5 @@
  .sluitknop:hover{
  opacity: 1;
  }
+ 
+   
