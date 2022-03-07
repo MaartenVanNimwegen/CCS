@@ -35,7 +35,7 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
 </head>
 
 <body>
-	<div style="width:700px; margin:50 auto;">
+	<div style="width:100%; margin:50 auto;">
 
 		<h2>Winkelwagen</h2>
 
@@ -58,7 +58,7 @@ if (isset($_POST['action']) && $_POST['action'] == "change") {
 						foreach ($_SESSION["shopping_cart"] as $product) {
 						?>
 							<tr>
-								<td><img src='<?php echo $product["image"]; ?>' width="50" height="40" /></td>
+								<td><img src='<?php echo $product["image"]; ?>' width="100" height="100" /></td>
 								<td><?php echo $product["name"]; ?><br />
 									<form method='post' action=''>
 										<input type='hidden' name='code' value="<?php echo $product["code"]; ?>" />
