@@ -22,12 +22,11 @@ if(isset($_GET['id'])){
                         <form action='KOEL.php?id=$id' method='post' enctype='multipart/form-data'>
                             <input type='text' name='name' class='input' placeholder='".$result['name']."'><br>
                             <input class='input' type='name' name='price' placeholder='".$result['price']."'><br>
+                            <img src='".$result['image']."' alt=''>
                             <input class='bestand' type='file' name='fileToUpload' id='fileToUpload'><br>
-                            
-                            <input class='upload' type='submit' value='Bewerk' name='submit'>
+                            <input class='upload cart-btn' type='submit' value='Bewerk' name='submit'>
                             <a type='button' class='sluitknop' href='#'>&times;</a>
                         </form>
-                        <a href='artikelverwijderen.php?id=$id'><i class='fa fa-trash'></i></a>
                     </div>
                 </div>
             </body>

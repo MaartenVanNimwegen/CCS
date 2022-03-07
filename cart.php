@@ -1,56 +1,43 @@
 <?php
 error_reporting(E_ALL);
- include 'header.php';
+include 'header.php';
 session_start();
 // Verwijderen
-$status="";
-if (isset($_POST['action']) && $_POST['action']=="remove"){
-if(!empty($_SESSION["shopping_cart"])) {
-	foreach($_SESSION["shopping_cart"] as $key => $value) {
-		if($_POST["code"] == $key){
-		unset($_SESSION["shopping_cart"][$key]);
-		$status = "<div class='box' style='color:red;'>
+$status = "";
+if (isset($_POST['action']) && $_POST['action'] == "remove") {
+	if (!empty($_SESSION["shopping_cart"])) {
+		foreach ($_SESSION["shopping_cart"] as $key => $value) {
+			if ($_POST["code"] == $key) {
+				unset($_SESSION["shopping_cart"][$key]);
+				$status = "<div class='box' style='color:red;'>
 		Product is verwijdert!</div>";
+			}
+			if (empty($_SESSION["shopping_cart"]))
+				unset($_SESSION["shopping_cart"]);
 		}
-		if(empty($_SESSION["shopping_cart"]))
-		unset($_SESSION["shopping_cart"]);
-			}		
-		}
+	}
 }
 // Hoeveelheid veranderen
-if (isset($_POST['action']) && $_POST['action']=="change"){
-  foreach($_SESSION["shopping_cart"] as &$value){
-    if($value['code'] === $_POST["code"]){
-        $value['quantity'] = $_POST["quantity"];
-        break; // Stop de loop
-    }
-}
-  	
+if (isset($_POST['action']) && $_POST['action'] == "change") {
+	foreach ($_SESSION["shopping_cart"] as &$value) {
+		if ($value['code'] === $_POST["code"]) {
+			$value['quantity'] = $_POST["quantity"];
+			break; // Stop de loop
+		}
+	}
 }
 ?>
 <html>
+
 <head>
-<title>Winkelwagen</title>
-<link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
+	<title>Winkelwagen</title>
+	<link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
 </head>
+
 <body>
-<div style="width:700px; margin:50 auto;">
+	<div style="width:100%; margin:50 auto;">
 
-<h2>Winkelwagen</h2>   
-
-<?php
-// De winkelwagen icon en teller van de producten
-if(!empty($_SESSION["shopping_cart"])) {
-$cart_count = count(array_keys($_SESSION["shopping_cart"]));
-?>
-<div class="cart_div">
-<a href="cart.php">
-<img src="cart-icon.png" /> Cart
-<span><?php echo $cart_count; ?></span></a>
-</div>
-<?php
-}
-?>
+		<h2>Winkelwagen</h2>
 
 <div class="cart">
 <?php
@@ -124,34 +111,44 @@ $totaal += ($product["price"]*$product["quantity"]);
 </td>
 </tr>
 
-<?php if(isset($_SESSION['user_name'])  ){?>
+						<?php if (isset($_SESSION['user_name'])) { ?>
 
-<tr colspan="5" align="right">
-<td><a href='versturen.php' onclick='return checkdelete()'><input type='submit' value='bestellen'></a></td>
-</tr>
-<?php } else {  ?>
-	<tr colspan="5" align="right">
-<td><p>Om Te Bestellen Moet Je Eerst <a href='index.php#Login'>Inloggen</a></p></td>
-</tr>
-<?php }?>
+							<tr colspan="5" align="right">
+							<td>
+						    <form method='post' action='versturen.php'>
+						    <input type="hidden" name='name' value='<?php foreach ($_SESSION["shopping_cart"] as $product){ echo $product['name'] . 'x' . $product['quantity'] . '<br>' ;}?>'>
+							<input type="hidden" name='totaal' value='<?php foreach ($_SESSION["shopping_cart"] as $product){ echo $product["price"]*$product["quantity"] ;}?>'>
+							<input type="hidden" name='code' value='<?php foreach ($_SESSION["shopping_cart"] as $product){ echo $product['code'] ;}?>'>
+							<input type='submit' value='bestellen'>
+						    </form>
+						</td>							
+						</tr>
+						<?php } else {  ?>
+							<tr colspan="5" align="right"> 
+								<td>
+									<p>Om Te Bestellen Moet Je Eerst <a href='#Login'>Inloggen</a></p>
+								</td>
+							</tr>
+						<?php } ?>
 
-</tbody>
-</table>		
-  <?php
-}else{
-	echo "<h3>Uw Winkelwagen Is Leeg!</h3>";
-	}
-?>
-</div>
+					</tbody>
+				</table>
+			<?php
+			} else {
+				echo "<h3>Uw Winkelwagen Is Leeg!</h3>";
+			}
+			?>
+		</div>
 
-<div style="clear:both;"></div>
+		<div style="clear:both;"></div>
 
-<div class="message_box" style="margin:10px 0px;">
-<?php echo $status; ?>
-</div>
+		<div class="message_box" style="margin:10px 0px;">
+			<?php echo $status; ?>
+		</div>
 
 
-<br /><br />
-</div>
+		<br /><br />
+	</div>
 </body>
+
 </html>

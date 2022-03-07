@@ -115,7 +115,6 @@ h2{
     background: rgb(255, 102, 0);
   }
   .tijd{
-      text-decoration: underline;
       color: rgb(255, 102, 0);;
       float: right;
       padding-right: 5%;

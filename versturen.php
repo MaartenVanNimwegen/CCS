@@ -10,21 +10,17 @@ $result = $conn->query($sql1);
 if ($result) {
   foreach ($result as $row) {
 
-    foreach ($_SESSION["shopping_cart"] as $product){
-  
-      $totaal = $product["price"]*$product["quantity"];
-      $name = $product["name"];
-      $code= $product["code"];
-    }
 
-
+$totaal=$_POST['totaal'];
+$code= $_POST['code'];
+$name = $_POST["name"];
 $naam= $row['name'];;
 $datum= date("d-m-Y");
 $email= $row['email'];
 $tijd = date('H:i', strtotime('+43 minutes'));
 
 $receiver = array($email);
-$subject="Uw bestelling word bereid.";
+$subject="Uw bestelling wordt bereid.";
 $body = "Beste $naam,
 
 Uw bestelling geplaatst op $datum van €$totaal is ontvangen.

@@ -1,9 +1,10 @@
 <?php
 
+session_start();
 
-$tijd = date('H:i', strtotime('+43 minutes'));
+$snacks=$_POST['bestelling'];
 
-echo $newDate;
+echo "$snacks";
 
 
 
