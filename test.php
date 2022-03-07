@@ -2,7 +2,9 @@
 
 session_start();
 
-print_r ($_SESSION["shopping_cart"]);
+$snacks=$_POST['bestelling'];
+
+echo "$snacks";
 
 
 
