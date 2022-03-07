@@ -79,12 +79,7 @@ if(empty($_SESSION["shopping_cart"])) {
 }   
 
 
-            if(isset($_SESSION['admin_name'])){
-				
-			} else{		
-if(!empty($_SESSION["shopping_cart"])) {
-    $cart_count = count(array_keys($_SESSION["shopping_cart"]));?><div class="cart_div"><a href="cart.php"><img src="cart-icon.png" /> Cart<span><?php echo $cart_count; ?></span></a></div><?php
-}}
+      
 
 mysqli_close($conn);
 ?>
@@ -93,53 +88,36 @@ mysqli_close($conn);
 		<div class="container">
 			<div class="row product-lists">
                 <?php
-                include 'connection.php';
-
-                $result = mysqli_query($conn,"SELECT * FROM `products`");
-                
-                while($row = mysqli_fetch_assoc($result)){
-		            echo "<div class='col-lg-4 col-md-6 text-center'>
-                            <div class='single-product-item'>
-								<form method='post' action=''>
-								<input type='hidden' name='code' value=".$row['code']." />										
-						        <div class='product-image'>
-							        <img src='" . $row['image'] . "' alt=''></a>
-						        </div>
-						        <h3>" . $row['name'] . "</h3>
-						        <p class='product-price'><span>Per stuk</span>€" . $row['price'] . "</p>";
-
-							     if(isset($_SESSION['admin_name'])){
-
-
-                           if(isset($_SESSION['admin_name'])):
-
-                            
-                            
-                            
-                            
-
-
-							
+                	include 'connection.php';
+                	$result = mysqli_query($conn,"SELECT * FROM `products`");
+	                while($row = mysqli_fetch_assoc($result)){
+			            echo"<div class='col-lg-4 col-md-6 text-center flex-container'>
+                        		<div class='single-product-item min-height'>
+									<div class='product-image flex-item'>
+										<img src='" . $row['image'] . "' alt=''></a>
+									</div>
+									<div class='product-image flex-item'>
+									<form method='post' action=''>
+										<input type='hidden' name='code' value=".$row['code']." />
+						    			<h3>" . $row['name'] . "</h3>
+						    			<p class='product-price'><span>Per stuk</span>€" . $row['price'] . "</p>
+						";
+			     		if(isset($_SESSION['admin_name'])){
 							echo"
-	                    	</form>
-								 <a href='?id=" . $row['id'] . "#bewerk'><button  class='cart-btn'><i class='fas fa-pen'></i> Bewerk</button> </a>
-								
-								
-								</div>";
-                            endif; 
-		
-
-	
-			
-
-								 } else { 
-								echo" <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i>  Bestel</button> </form>
-
-					        </div>"; } echo "
-									
-				        </div>";
-                }
-                mysqli_close($conn);
+								</form>
+									<a href='?id=" . $row['id'] . "#bewerk'>
+									<button class='cart-btn'><i class='fas fa-pen'></i></button> <a class='delete' href='artikelverwijderen.php?id=".$row['id']."'><i class='fa fa-trash'></i></a></a>
+									</div></div>
+							";
+						}
+						else { 
+							echo" <button type='submit' class='cart-btn'><i class='fas fa-shopping-cart'></i>  Bestel </button>
+							</form>
+							</div></div>"; 
+						} 
+						echo "</div>";
+                	}
+                	mysqli_close($conn);
 				?>
             </div>
 		</div>
