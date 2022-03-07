@@ -10,14 +10,10 @@ $result = $conn->query($sql1);
 if ($result) {
   foreach ($result as $row) {
 
-    foreach ($_SESSION["shopping_cart"] as $product){
-  
-      $totaal = $product["price"]*$product["quantity"];
-      $name = $product["name"];
-      $code= $product["code"];
-    }
 
-
+$totaal=$_POST['totaal'];
+$code= $_POST['code'];
+$name = $_POST["name"];
 $naam= $row['name'];;
 $datum= date("d-m-Y");
 $email= $row['email'];
