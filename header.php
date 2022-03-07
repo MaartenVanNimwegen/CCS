@@ -15,7 +15,7 @@ include 'connection.php';
 
 <body>
   <div class="topnav" id="myTopnav">
-    <a href="index.php">Voedseloverzicht</a>
+    <a href="index.php">Menukaart</a>
 
     <?php if (isset($_SESSION['admin_name']) || isset($_SESSION['user_name'])) { ?>
 
